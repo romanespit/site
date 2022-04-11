@@ -167,8 +167,8 @@ html {
     background-color: #bdbdbd;
     }
     .text-field__group .text-field__input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 10;
+    border-bottom-right-radius: 10;
     position: relative;
     z-index: 2;
     size: 150;
@@ -185,3 +185,53 @@ html {
     border-bottom-right-radius: 0;
     border-right-width: 0;
     }
+    
+      
+    input:checked {
+    border: 6px solid #005BFF;
+    }
+
+    
+    legend {
+    color: white;
+    background-color: #005BFF;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 0;
+    font-size: 14px;
+    }
+    fieldset {
+        width:70%;
+    }
+    textarea {
+        font-family: Scrip;
+    }
+    .fieldset .input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+      
+        border: 2px solid #999;
+        transition: 0.2s all linear;
+        outline: none;
+        margin-right: 5px;
+      
+        position: relative;
+        top: 4px;
+    }
+    .fieldset .button:active {
+        background-color: white;
+        color: #005BFF;
+        outline: 1px solid #005BFF;
+    }
+    .fieldset .button:focus {
+        color: #999;
+    }
+    .fieldset .button:hover {
+        color: #999;
+    }
+    

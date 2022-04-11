@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
+    <title>Тестовые виджеты</title>    
+    <link rel="stylesheet" href="style.css">
+	<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body style="font-family: 'Source Sans Pro', sans-serif">
+    <div class="content-wrapper">
+        <header class="header">
+            <p style="font-size: 30px; margin: 0; padding: 10px;" id="logo" class="logo" title="Документация">Тестовые виджеты</p>
+            
+            <right><div class="text-field">
+                <label class="text-field__label" for="search">Confirmation Token</label>
+                <div class="text-field__group">
+                    <button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>
+                    <input class="text-field__input" type="search" id="search" name="search" size="50">
+                    <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
+                </div>
+              </div>
+              </right>
+        </header>
+
+        <div class="container clearfix">
+            <div id="all-form" class="widget-container" style="width: 25%;"></div>
+            <div id="bank-form" class="widget-container" style="width: 25%;"></div>
+            <div id="sber-form" class="widget-container" style="width: 25%;"></div>
+            <div id="wallet-form" class="widget-container" style="width: 25%;"></div>
+        </div> 
+    </div>
+	<script>
+        rendered = false;
+        token = '';	
+        cust_colors = {
+            background: '#F2F3F5', // Цвет фона платежной формы
+            controlPrimary: '#005BFF', // Цвет кнопки Заплатить и других акцентных элементов
+            controlPrimaryContent: '#FFFFFF', // Цвет текста кнопки Заплатить
+            controlSecondary: '#090089', // Цвет неакцентных элементов интерфейса
+            border: '#090089', // Цвет границ и разделителей
+            text: '#000000' // Цвет текста
+        };
+        document.querySelector("#logo").onclick = function() {
+            window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start"
+        }
+        document.querySelector("#logs").onclick = function() {
+            if(token.substring(0,2) == "ct")
+            { 
+                window.open("https://kibana.yooteam.ru/app/kibana#/discover?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(columns:!(Payload,message.message),filters:!(),index:'frontend-checkout-client-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%20%22"+token+"%22%20%22ДопТрейс%22%20)'),sort:!())");
+            }
+            else alert('Введите confirmation token!');
+        }
+        document.querySelector("#render").onclick = function(){
+            token = document.getElementById("search").value;            
+            if(token.substring(0,2) == "ct")
+            {
+                if(rendered)
+                {
+                    all.destroy();
+                    bank.destroy();
+                    sber.destroy();
+                    wallet.destroy();
+                    rendered = false;
+                }
+                all = new window.YooMoneyCheckoutWidget({
+                    confirmation_token: token, 
+                    return_url: 'https://example.com/',
+                    customization: {
+                        colors: cust_colors
+                    },
+                    error_callback: function(error) {
+                        console.log(error)
+                    }
+                });
+                //bank card
+                bank = new window.YooMoneyCheckoutWidget({
+                    confirmation_token: token,
+                    return_url: 'https://example.com/',
+                    customization: {
+                        colors: cust_colors,
+                        payment_methods: ['bank_card']
+                    },
+                    error_callback: function(error) {
+                        console.log(error)
+                    }
+                });
+                //sber
+                sber = new window.YooMoneyCheckoutWidget({
+                    confirmation_token: token, 
+                    return_url: 'https://example.com/',
+                    customization: {
+                        colors: cust_colors,
+                        payment_methods: ['sberbank']
+                    },
+                    error_callback: function(error) {
+                        console.log(error)
+                    }
+                });
+                //wallet
+                wallet = new window.YooMoneyCheckoutWidget({
+                    confirmation_token: token, 
+                    return_url: 'https://example.com/',
+                    customization: {
+                        colors: cust_colors,
+                        payment_methods: ['yoo_money']
+                    },
+                    error_callback: function(error) {
+                        console.log(error)
+                    }
+                });
+                all.render('all-form');
+                bank.render('bank-form');
+                sber.render('sber-form');
+                wallet.render('wallet-form');
+                rendered = true;
+            }
+            else {
+                alert('Введите confirmation token!');
+            }
+        }        
+    </script>
+</body>
+</html>
