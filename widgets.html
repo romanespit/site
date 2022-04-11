@@ -93,13 +93,15 @@
                 <button class="text-field__btnl" type="button" id="logs" name="logs">Kibana frontend</button>
             </div>
             <div class="widget-container" style="width: 50%;">
-                <br><fieldset style="height: 70%;">
+                <br><fieldset style="height: 55%;">
                     <legend>Виджет:</legend>
                     <div id="render-form" class="widget-container"></div>
                 </fieldset>
-                <br><fieldset style="height: 25%;">
+                <br><fieldset style="height: 40%;">
                     <legend>Код готовой страницы:</legend>
-                    <textarea id="wdg_code" style="width:100%; height:100%; font-family:Script; resize: none;" >Код готовой страницы появится после отрисовки</textarea>
+                    <textarea id="wdg_code" style="width:100%; height:85%; font-family:Script; resize: none;" >Код готовой страницы появится после отрисовки</textarea>
+                    <button class="text-field__btnl" type="button" id="dwnld" name="html">Скачать HTML</button>
+
                 </fieldset>
             </div>
         </div> 
@@ -131,6 +133,20 @@
                 console.log(error)
             }
         };
+        
+        function download(text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', 'WidgetYookassa.html');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }        
+        document.querySelector("#dwnld").onclick = function() {
+            if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Код готовой страницы появится после отрисовки") download(generateHTML());
+            else alert('Код готовой страницы появится после отрисовки');            
+        }
         document.querySelector("#logo").onclick = function() {
             window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start"
         }
@@ -151,7 +167,7 @@
             code += '\n<html>';
             code += '\n\t<head>';
             code += '\n\t<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-            code += '\n\t<title>Прием платежа с помощью виджета ЮKassa</title>';
+            code += '\n\t<title>❤ KiaCode</title>';
             code += '\n\t<!--Подключение библиотеки для инициализации виджета ЮKassa-->';
             code += '\n\t<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js">';
             code += '</scr';
