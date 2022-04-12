@@ -91,6 +91,13 @@
                 </fieldset><br>                
                 <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
                 <button class="text-field__btnl" type="button" id="logs" name="logs">Kibana frontend</button>
+                <div class="text-field">
+                    <label class="text-field__label" for="search">shopID</label>
+                    <div class="text-field__group">
+                        <input class="text-field__input" type="shop" id="shop" name="shopik" size="5">
+                        <button class="text-field__btn" type="button" id="go" name="render">АРМ ШМ</button>
+                    </div>
+                </div>
             </div>
             <div class="widget-container" style="width: 50%;">
                 <br><fieldset style="height: 60%;">
@@ -101,7 +108,7 @@
                     <legend>Код готовой страницы:</legend>
                     <textarea id="wdg_code" style="width:100%; height:77%; font-family:Script; resize: none;" readonly>Код готовой страницы появится после отрисовки</textarea>
                     <button class="text-field__btnl" type="button" id="dwnld" name="html">Скачать HTML</button>
-
+                    
                 </fieldset>
             </div>
         </div> 
@@ -149,6 +156,10 @@
         }
         document.querySelector("#logo").onclick = function() {
             window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start"
+        }
+        document.querySelector("#go").onclick = function() {
+            if(String(document.getElementById("shop").value).length > 0) window.open("https://arm.yooteam.ru/v3/shop-masters/shops?query="+document.getElementById("shop").value+"&shop=active");
+            else window.open("https://arm.yooteam.ru/v3/shop-masters/shops");            
         }
         document.querySelector("#logs").onclick = function() {
             token = document.getElementById("conftoken").value; 
