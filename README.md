@@ -7,3 +7,4 @@
 - [ ] checkout.js
 
 https://kiacode97.github.io/yookassa/widgets.html
+https://kiacode97.github.io/yookassa/checkoutjs.html
