@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
+    <title>Тестовые виджеты</title>    
+    <link rel="stylesheet" href="style.css">
+	<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body style="font-family: 'Source Sans Pro', sans-serif">
+    <div class="content-wrapper">
+        <header class="header">
+            <p style="font-size: 30px; margin: 0; padding: 10px;" id="logo" class="logo" title="Документация">checkout.js</p>
+            <!--<div class="text-field">
+                <label class="text-field__label" for="search">Confirmation Token</label>
+                <div class="text-field__group">
+                    <button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>
+                    <input class="text-field__input" type="search" id="search" name="search" size="50">
+                    <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
+                </div>
+            </div>-->
+        </header>
+
+        <div class="container clearfix">
+            <div id="settings-form" class="widget-container" style="width: 50%;">
+                <br>
+                <fieldset>
+                    <legend>Confirmation Token</legend>
+                    <div class="text-field">
+                        <!--<label class="text-field__label" for="conftoken">Confirmation Token</label>-->
+                        <div class="text-field__group">
+                            <!--<button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>-->
+                            <input class="text-field__input" type="conftoken" id="conftoken" name="conftoken" size="50">
+                        </div>
+                    </div>               
+                </fieldset>
+                <div class="text-field">
+                    <label class="text-field__label" for="search">shopID</label>
+                    <div class="text-field__group">
+                        <input class="text-field__input" type="shop" id="shop" name="shopik" size="5">
+                        <button class="text-field__btn" type="button" id="go" name="render">АРМ ШМ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-container" style="width: 50%;">
+                <br><fieldset style="height: 60%;">
+                    <legend>Виджет:</legend>
+                    <div id="render-form" class="widget-container"></div>
+                </fieldset>
+                <br><fieldset style="height: 30%;">
+                    <legend>Платежный токен:</legend>
+                    <textarea id="wdg_code" style="width:100%; height:77%; font-family:Script; resize: none;" readonly>Токен появится после отправки данных</textarea>
+                    
+                </fieldset>
+            </div>
+        </div> 
+    </div>
+	<script>
+        rendered = false;
+        document.querySelector("#logo").onclick = function() {
+            window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/library-implementation"
+        }  
+    </script>
+</body>
+</html>
