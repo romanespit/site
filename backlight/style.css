@@ -9,7 +9,11 @@ body {
 	background: #000;
 	height: 100vh;
 }
-
+footer {
+    text-align: center;
+    margin: 1.5em 0;
+    font-size: 80%;
+}
 #white {
 	position: absolute;
 	border-radius: 50%;

@@ -40,7 +40,11 @@ a {
         width: 80vw;
     }
 }
-
+footer {
+    text-align: center;
+    margin: 1.5em 0;
+    font-size: 80%;
+}
 .projects {
     line-height: 1.5em;
 }
