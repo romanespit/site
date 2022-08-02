@@ -1,35 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
-    <title>Тестовые виджеты</title>    
-    <link rel="stylesheet" href="style.css">
-	<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="turtle.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>kiacode.xyz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body style="font-family: 'Source Sans Pro', sans-serif">
-    <div class="content-wrapper">
-        <header class="header">
-            <p style="font-size: 30px; margin: 0; padding: 10px;" title="Главная">Главная</p>
-        </header>
-        <br><button class="href_btn" type="button" id="href_wdg" style="width: 200px; height: 40px;">Тестовые виджеты</button>
-        <br><button class="href_btn" type="button" id="href_epl" style="width: 200px; height: 40px;">ЕПЛ</button>
-        <br><button class="href_btn" type="button" id="href_wdgtest" style="width: 200px; height: 40px;">Тест</button>
-    </div>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="stl.css" />
+
+    <script src="quotes.js"></script>
     <script>
-        document.querySelector("#href_wdg").onclick = function() {
-            window.location.href = "widgets.html"
-        }
-        document.querySelector("#href_epl").onclick = function() {
-            window.location.href = "epl.html"
-        }
-        document.querySelector("#href_wdgtest").onclick = function() {
-            window.location.href = "widgets_test.html"
-        }
+        if (location.host == "xyz.kiacode.xyz") document.documentElement.style.transform = "scaleX(-1)";
     </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Feeling lost?</h1>
+        <div class="quote-container">
+            <div id="quote"></div>
+            <div id="person"></div>
+        </div>
+    </div>
+    <div class="container link-block">
+        <div class="quote-container projects">
+
+            <!--<p style="opacity: 60%;">games</p>
+            <div>
+                <a href="//snake.luca.gg">snake</a> |
+                <a href="/centergame/">center game</a> |
+                <a href="//lupus.luca.gg">lupus in fabula</a>
+            </div>
+            <p style="opacity: 60%;">projects</p>
+            <div>
+                <a href="//ooooooooooooooooooooooo.ooo">looonger urls</a> |
+                <a href="//belooo.ga">beluga</a> |
+                <a href="//spotifychords.luca.gg">spotify chords</a>
+            </div>-->
+            <p style="opacity: 60%;">utility</p>
+            <div>
+                <a href="/widgets">yookassa widgets</a> |
+                <a href="/epl">epl</a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
