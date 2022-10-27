@@ -145,8 +145,9 @@
             document.body.removeChild(element);
         }        
         document.querySelector("#dwnld").onclick = function() {
-            if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Скачать страницу можно будет после отрисовки") download(generateHTML());
-            else alert('Код готовой страницы появится после отрисовки');            
+            //if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Скачать страницу можно будет после отрисовки") download(generateHTML());
+            if(token.substring(0,2) == "ct") download(generateHTML());
+            else alert('Введите confirmation token');            
         }
         document.querySelector("#logo").onclick = function() {
             window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start"
