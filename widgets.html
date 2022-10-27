@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="widget-container" style="width: 50%;">
-                <br><fieldset>
+                <br><fieldset style="height:70%">
                     <legend>Виджет:</legend>
                     <div id="render-form" class="widget-container"></div>
                 </fieldset>
@@ -145,7 +145,7 @@
             document.body.removeChild(element);
         }        
         document.querySelector("#dwnld").onclick = function() {
-            if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Код готовой страницы появится после отрисовки") download(generateHTML());
+            if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Скачать страницу можно будет после отрисовки") download(generateHTML());
             else alert('Код готовой страницы появится после отрисовки');            
         }
         document.querySelector("#logo").onclick = function() {
