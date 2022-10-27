@@ -59,7 +59,7 @@ html {
     }
     .header {
         height: auto;
-        background: #005BFF;
+        background: #03A885;
         color: #fff;
         -webkit-box-flex: 0;
         -webkit-flex: none;
@@ -105,7 +105,7 @@ html {
     display: inline-block;
     font-weight: 400;
     line-height: 1.5;
-    color: #005BFF;
+    color: #03A885;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -145,7 +145,7 @@ html {
     display: inline-block;
     font-weight: 400;
     line-height: 1.5;
-    color: #005BFF;
+    color: #03A885;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -187,13 +187,13 @@ html {
     
       
     input:checked {
-    border: 6px solid #005BFF;
+    border: 6px solid #03A885;
     }
 
     
     legend {
     color: white;
-    background-color: #005BFF;
+    background-color: #03A885;
     padding: 5px 10px;
     border-radius: 0;
     border: 0;
@@ -224,8 +224,8 @@ html {
     }
     .fieldset .button:active {
         background-color: white;
-        color: #005BFF;
-        outline: 1px solid #005BFF;
+        color: #03A885;
+        outline: 1px solid #03A885;
     }
     .fieldset .button:focus {
         color: #999;
