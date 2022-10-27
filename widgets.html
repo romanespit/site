@@ -34,7 +34,8 @@
                         <!--<label class="text-field__label" for="conftoken">Confirmation Token</label>-->
                         <div class="text-field__group">
                             <!--<button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>-->
-                            <input class="text-field__input" type="conftoken" id="conftoken" name="conftoken" size="50">
+                            <input class="text-field__input" type="conftoken" id="conftoken" name="conftoken" size="70">
+                            <input type="checkbox" id="ismodal" name="ismodal" value="ismodal"><label for="ismodal">Модальное окно</label>
                         </div>
                     </div>               
                 </fieldset>
@@ -86,9 +87,8 @@
                         <input type="radio" id="card-method" name="method" value="card"><label for="card-method">Банковская карта</label>
                         <input type="radio" id="sber-method" name="method" value="sber"><label for="sber-method">SberPay</label>
                         <input type="radio" id="yoo-method" name="method" value="yoo"><label for="yoo-method">Кошелек ЮMoney</label>
-                        <input type="radio" id="sbp-method" name="method" value="sbp"><label for="sbp-method">СБП</label><br>
-                        <input type="checkbox" id="ismodal" name="ismodal" value="ismodal"><label for="ismodal">Модальное окно</label>
-                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе доступность способа и параметр:<textarea id="shopParams" style="width:100%; height: 15%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
+                        <input type="radio" id="sbp-method" name="method" value="sbp"><label for="sbp-method">СБП</label>
+                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе доступность способа и параметр:<textarea id="shopParams" style="width:100%; height: 70%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
                     </div>
                 </fieldset><br>                
                 <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
