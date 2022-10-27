@@ -86,7 +86,8 @@
                         <input type="radio" id="card-method" name="method" value="card"><label for="card-method">Банковская карта</label>
                         <input type="radio" id="sber-method" name="method" value="sber"><label for="sber-method">SberPay</label>
                         <input type="radio" id="yoo-method" name="method" value="yoo"><label for="yoo-method">Кошелек ЮMoney</label>
-                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе параметр:<textarea id="shopParams" style="width:100%; height: 10%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
+                        <input type="radio" id="sbp-method" name="method" value="sbp"><label for="sbp-method">СБП</label>
+                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе параметр:<textarea id="shopParams" style="width:100%; height: 15%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
                     </div>
                 </fieldset><br>                
                 <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
@@ -123,12 +124,12 @@
         rendered = false;
         token = '';	
         cust_colors = { // default
-            background: '#F2F3F5', // Цвет фона платежной формы
-            controlPrimary: '#005BFF', // Цвет кнопки Заплатить и других акцентных элементов
-            controlPrimaryContent: '#FFFFFF', // Цвет текста кнопки Заплатить
-            controlSecondary: '#090089', // Цвет неакцентных элементов интерфейса
-            border: '#090089', // Цвет границ и разделителей
-            text: '#000000' // Цвет текста
+            background: '#ffffff', // Цвет фона платежной формы
+            controlPrimary: '#03A885', // Цвет кнопки Заплатить и других акцентных элементов
+            controlPrimaryContent: '#ffffff', // Цвет текста кнопки Заплатить
+            controlSecondary: '#CFCFCF', // Цвет неакцентных элементов интерфейса
+            border: '#DBDBDB', // Цвет границ и разделителей
+            text: '#222222' // Цвет текста
         };
         render_request = {
             confirmation_token: token, 
@@ -213,6 +214,7 @@
             if(document.getElementById("card-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'bank_card\']';
             else if(document.getElementById("sber-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'sberbank\']';
             else if(document.getElementById("yoo-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'yoo_money\']';
+            else if(document.getElementById("sbp-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'sbp\']';
             code += '\n\t\t\t},';
             code += '\n\t\t\terror_callback: function(error) {';
             code += '\n\t\t\t\tconsole.log(error)';
@@ -284,6 +286,20 @@
                         customization: {
                             colors: cust_colors,
                             payment_methods: ['yoo_money']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }                    
+                }
+                else if(document.getElementById("sbp-method").checked)
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'https://example.com/',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['sbp']
                         },
                         error_callback: function(error) {
                             console.log(error)
