@@ -124,12 +124,6 @@
         rendered = false;
         token = '';	
         cust_colors = { // default
-            background: '#ffffff', // Цвет фона платежной формы
-            controlPrimary: '#03A885', // Цвет кнопки Заплатить и других акцентных элементов
-            controlPrimaryContent: '#ffffff', // Цвет текста кнопки Заплатить
-            controlSecondary: '#CFCFCF', // Цвет неакцентных элементов интерфейса
-            border: '#DBDBDB', // Цвет границ и разделителей
-            text: '#222222' // Цвет текста
         };
         render_request = {
             confirmation_token: token, 
@@ -210,13 +204,15 @@
             if(checkcolor(String(document.getElementById("controlSecondary").value))) controlSecondary = String(document.getElementById("controlSecondary").value);
             if(checkcolor(String(document.getElementById("border").value))) border = String(document.getElementById("border").value);
             if(checkcolor(String(document.getElementById("text").value))) text = String(document.getElementById("text").value);
-            if(background.length > 1) code += '\n\t\t\t\t\tbackground: \''+cust_colors.background;
-            if(controlPrimary.length > 1) code += '\',\n\t\t\t\t\tcontrolPrimary: \''+cust_colors.controlPrimary;
-            if(controlPrimaryContent.length > 1) code += '\',\n\t\t\t\t\tcontrolPrimaryContent: \''+cust_colors.controlPrimaryContent;
-            if(controlSecondary.length > 1) code += '\',\n\t\t\t\t\tcontrolSecondary: \''+cust_colors.controlSecondary;
-            if(border.length > 1) code += '\',\n\t\t\t\t\tborder: \''+cust_colors.border;
-            if(text.length > 1)  code += '\',\n\t\t\t\t\ttext: \''+cust_colors.text;
-            code += '\'\n\t\t\t\t}';
+            hasPrev = false;
+            if(background.length > 1) { code += '\n\t\t\t\t\tbackground: \''+cust_colors.background; hasPrev=true; }
+            if(controlPrimary.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolPrimary: \''+cust_colors.controlPrimary; hasPrev=true; }
+            if(controlPrimaryContent.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolPrimaryContent: \''+cust_colors.controlPrimaryContent; hasPrev=true; }
+            if(controlSecondary.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolSecondary: \''+cust_colors.controlSecondary; hasPrev=true; }
+            if(border.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tborder: \''+cust_colors.border; hasPrev=true; }
+            if(text.length > 1)  { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\ttext: \''+cust_colors.text; hasPrev=true; }
+            if(hasPrev) {code+='\''}
+            code += '\n\t\t\t\t}';
             if(document.getElementById("card-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'bank_card\']';
             else if(document.getElementById("sber-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'sberbank\']';
             else if(document.getElementById("yoo-method").checked) code += ',\n\t\t\t\tpayment_methods: [\'yoo_money\']';
@@ -237,18 +233,20 @@
         document.querySelector("#render").onclick = function(){
             token = document.getElementById("conftoken").value;            
             if(token.substring(0,2) == "ct")
-            {     
-                if(checkcolor(String(document.getElementById("background").value))) background = String(document.getElementById("background").value);
-                if(checkcolor(String(document.getElementById("controlPrimary").value))) controlPrimary = String(document.getElementById("controlPrimary").value);
-                if(checkcolor(String(document.getElementById("controlPrimaryContent").value))) controlPrimaryContent = String(document.getElementById("controlPrimaryContent").value);
-                if(checkcolor(String(document.getElementById("controlSecondary").value))) controlSecondary = String(document.getElementById("controlSecondary").value);
-                if(checkcolor(String(document.getElementById("border").value))) border = String(document.getElementById("border").value);
-                if(checkcolor(String(document.getElementById("text").value))) text = String(document.getElementById("text").value);
+            {   
                 if(rendered)
                 {
                     wdget.destroy();
                     rendered = false;
+                    cust_colors = { };
                 }
+                if(checkcolor(String(document.getElementById("background").value))) background = String(document.getElementById("background").value); else background = '#';
+                if(checkcolor(String(document.getElementById("controlPrimary").value))) controlPrimary = String(document.getElementById("controlPrimary").value); else controlPrimary = '#';
+                if(checkcolor(String(document.getElementById("controlPrimaryContent").value))) controlPrimaryContent = String(document.getElementById("controlPrimaryContent").value); else controlPrimaryContent = '#';
+                if(checkcolor(String(document.getElementById("controlSecondary").value))) controlSecondary = String(document.getElementById("controlSecondary").value); else controlSecondary = '#';
+                if(checkcolor(String(document.getElementById("border").value))) border = String(document.getElementById("border").value); else border = '#';
+                if(checkcolor(String(document.getElementById("text").value))) text = String(document.getElementById("text").value); else text = '#';
+                
                 if(background.length > 1) cust_colors.background = background;
                 if(controlPrimary.length > 1) cust_colors.controlPrimary = controlPrimary;
                 if(controlPrimaryContent.length > 1) cust_colors.controlPrimaryContent = controlPrimaryContent;
