@@ -6,5 +6,5 @@
 - [X] Скачать код в HTML
 - [ ] checkout.js
 
-https://kiacode97.github.io/yookassa/widgets.html
-https://kiacode97.github.io/yookassa/checkoutjs.html
+http://kiacode.space/
+http://kiacode.space/widgets

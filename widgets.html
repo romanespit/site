@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>Тестовые виджеты</title>    
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/widgets.css">
 	<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body style="font-family: 'Source Sans Pro', sans-serif">
     <div class="content-wrapper">
@@ -86,8 +86,9 @@
                         <input type="radio" id="card-method" name="method" value="card"><label for="card-method">Банковская карта</label>
                         <input type="radio" id="sber-method" name="method" value="sber"><label for="sber-method">SberPay</label>
                         <input type="radio" id="yoo-method" name="method" value="yoo"><label for="yoo-method">Кошелек ЮMoney</label>
-                        <input type="radio" id="sbp-method" name="method" value="sbp"><label for="sbp-method">СБП</label>
-                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе параметр:<textarea id="shopParams" style="width:100%; height: 15%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
+                        <input type="radio" id="sbp-method" name="method" value="sbp"><label for="sbp-method">СБП</label><br>
+                        <input type="checkbox" id="ismodal" name="ismodal" value="ismodal"><label for="ismodal">Модальное окно</label>
+                        <p>Чтобы форсировать конкретный способ, проверяйте на шопе доступность способа и параметр:<textarea id="shopParams" style="width:100%; height: 15%;font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly><parameter key="shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions" value="true"/></textarea></p>
                     </div>
                 </fieldset><br>                
                 <button class="text-field__btn" type="button" id="render" name="render">Отрисовать</button>
@@ -197,6 +198,10 @@
             code += '\n\t\t\tconfirmation_token: \''+token;
             code += '\',\n\t\t\treturn_url: \'https://example.com/\',';
             code += '\n\t\t\tcustomization: {';
+            if(document.getElementById("ismodal").checked)
+            {
+                code += '\n\t\t\t\tmodal: true,';
+            } 
             code += '\n\t\t\t\tcolors: {';
             if(checkcolor(String(document.getElementById("background").value))) background = String(document.getElementById("background").value);
             if(checkcolor(String(document.getElementById("controlPrimary").value))) controlPrimary = String(document.getElementById("controlPrimary").value);
@@ -253,7 +258,6 @@
                 if(controlSecondary.length > 1) cust_colors.controlSecondary = controlSecondary;
                 if(border.length > 1) cust_colors.border = border;
                 if(text.length > 1) cust_colors.text = text;
-                
                 if(document.getElementById("card-method").checked)
                 {
                     render_request = {
@@ -322,7 +326,11 @@
                             console.log(error)
                         }
                     }
-                }                
+                }
+                if(document.getElementById("ismodal").checked)
+                {
+                    render_request.customization.modal = true;
+                }              
                 wdget = new window.YooMoneyCheckoutWidget(render_request);
                 wdget.render('render-form');
                 document.getElementById("wdg_code").value = generateHTML();
