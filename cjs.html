@@ -40,22 +40,22 @@
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">                                   
-                            <input class="text-field__input" type="expM" id="expM" name="expM" size="4" placeholder="MM">/                                    
+                            <input class="text-field__input" type="expM" id="expM" name="expM" size="4" placeholder="MM"> /                                   
                             <input class="text-field__input" type="expY" id="expY" name="expY" size="4" placeholder="ГГ">
                             <label class="text-field__label" for="controlPrimary" style="margin-left: 5px">ММ/ГГ</label> 
-                            </div> 
+                        </div> 
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">             
                             <input class="text-field__input" type="cvv" id="cvv" name="cvv" size="5" placeholder="CVV/CVC">
-                            <label class="text-field__label" for="cvv" style="margin-left: 5px">CVV/CVC</label>
+                            <label class="text-field__label" for="cvv" style="margin-left: 5px">CVV</label>
                         </div> 
                     </div>
                 </fieldset>
                 <fieldset style="height: 30%;">
                     <legend>Токен/Ошибка:</legend>
                     <div style="height: 100%;">
-                        <textarea id="checkoutToken" style="width:100%; height: 100%; font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly placeholder="Токен будет здесь"></textarea>
+                        <textarea id="checkoutToken" style="width:100%; height: 100%; font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly placeholder="Токен или ошибка будет здесь"></textarea>
                     </div>
                 </fieldset>              
                 <button class="text-field__btn" type="button" id="tokenize" name="tokenize" style="margin-top:5px;">Получить токен</button>
