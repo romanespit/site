@@ -23,10 +23,8 @@
                 <fieldset>
                     <legend>shopID</legend>
                     <div class="text-field">
-                        <!--<label class="text-field__label" for="conftoken">Confirmation Token</label>-->
                         <div class="text-field__group">
                             <input class="text-field__input" type="shopid" id="shopid" name="shopid" size="15" placeholder="shopID">
-                            <!--<button class="text-field__btn" type="button" id="saveshopid" name="saveshopid">Сохранить</button>-->
                         </div>
                     </div>               
                 </fieldset>
@@ -35,20 +33,17 @@
                     <div class="text-field">
                         <div class="text-field__group">             
                             <input class="text-field__input" type="cardnumber" id="cardnumber" name="cardnumber" size="15" placeholder="Номер карты">
-                            <label class="text-field__label" for="cardnumber" style="margin-left: 5px">Номер карты</label>
                         </div> 
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">                                   
-                            <input class="text-field__input" type="expM" id="expM" name="expM" size="4" placeholder="MM"> /                                   
-                            <input class="text-field__input" type="expY" id="expY" name="expY" size="4" placeholder="ГГ">
-                            <label class="text-field__label" for="controlPrimary" style="margin-left: 5px">ММ/ГГ</label> 
+                            <input class="text-field__input" type="expM" id="expM" name="expM" size="4" placeholder="MM" style="margin-right:5px"> /                                   
+                            <input class="text-field__input" type="expY" id="expY" name="expY" size="4" placeholder="ГГ" style="margin-left:5px">
                         </div> 
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">             
                             <input class="text-field__input" type="cvv" id="cvv" name="cvv" size="5" placeholder="CVV/CVC">
-                            <label class="text-field__label" for="cvv" style="margin-left: 5px">CVV</label>
                         </div> 
                     </div>
                 </fieldset>
@@ -90,8 +85,7 @@
         document.querySelector("#tokenize").onclick = function(){
             shop = document.getElementById("shopid").value;       
             if(shop >= 1000 && shop <= 999999)
-            {   
-                //if(!savedshop) return alert('shopID не сохранён');
+            {
                 try {
                     const checkout = YooMoneyCheckout(shop);
                     checkout.tokenize({
@@ -117,13 +111,11 @@
                                 document.getElementById("checkoutToken").value +="\nCode: "+res.error.params[i].code+" Message: "+res.error.params[i].message;
                             }
                         }
-                    }
-                    
+                    }                    
                     });
                 } catch(error) {
                     console.log(error);
-                }
-                
+                }                
             }
             else alert('Неверный shopID');
         }        
