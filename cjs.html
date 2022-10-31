@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
+    <title>checkout.js</title>    
+    <link rel="stylesheet" href="css/cjs.css">
+    <script src="https://static.yoomoney.ru/checkout-js/v1/checkout.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body style="font-family: 'Source Sans Pro', sans-serif">
+    <div class="content-wrapper">
+        <header class="header">
+            <p style="font-size: 30px; margin: 0; margin: 10px;" id="logo" class="logo" title="Документация">checkout.js</p>
+        </header>
+
+        <div class="container clearfix">
+            <div id="settings-form" class="widget-container" style="width: 55%; margin-left: 15px;">
+                <br>
+                <fieldset>
+                    <legend>shopID</legend>
+                    <div class="text-field">
+                        <!--<label class="text-field__label" for="conftoken">Confirmation Token</label>-->
+                        <div class="text-field__group">
+                            <input class="text-field__input" type="shopid" id="shopid" name="shopid" size="15" placeholder="shopID">
+                            <!--<button class="text-field__btn" type="button" id="saveshopid" name="saveshopid">Сохранить</button>-->
+                        </div>
+                    </div>               
+                </fieldset>
+                <fieldset>
+                    <legend>Карта для токенизации</legend>
+                    <div class="text-field">
+                        <div class="text-field__group">             
+                            <input class="text-field__input" type="cardnumber" id="cardnumber" name="cardnumber" size="15" placeholder="Номер карты">
+                            <label class="text-field__label" for="cardnumber" style="margin-left: 5px">Номер карты</label>
+                        </div> 
+                    </div>
+                    <div class="text-field">
+                        <div class="text-field__group" style="padding-top: 5px">                                   
+                            <input class="text-field__input" type="expM" id="expM" name="expM" size="4" placeholder="MM">/                                    
+                            <input class="text-field__input" type="expY" id="expY" name="expY" size="4" placeholder="ГГ">
+                            <label class="text-field__label" for="controlPrimary" style="margin-left: 5px">ММ/ГГ</label> 
+                            </div> 
+                    </div>
+                    <div class="text-field">
+                        <div class="text-field__group" style="padding-top: 5px">             
+                            <input class="text-field__input" type="cvv" id="cvv" name="cvv" size="5" placeholder="CVV/CVC">
+                            <label class="text-field__label" for="cvv" style="margin-left: 5px">CVV/CVC</label>
+                        </div> 
+                    </div>
+                </fieldset>
+                <fieldset style="height: 30%;">
+                    <legend>Токен/Ошибка:</legend>
+                    <div style="height: 100%;">
+                        <textarea id="checkoutToken" style="width:100%; height: 100%; font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly placeholder="Токен будет здесь"></textarea>
+                    </div>
+                </fieldset>              
+                <button class="text-field__btn" type="button" id="tokenize" name="tokenize" style="margin-top:5px;">Получить токен</button>
+                <button class="text-field__btn" type="button" id="logs" name="logs" style="margin-left:5px; margin-top:5px;">Kibana</button>
+                
+            </div>
+            <div class="widget-container" style="width: 55%;">
+                <br><fieldset style="height:550px">
+                    <legend>Тестовые карты:</legend>
+                    Заполню попозже + сделать кликабельными для автозаполнения <br><a target="_blank" href="https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card-data">Тестовые карты</a>
+                </fieldset>
+            </div>
+        </div> 
+    </div>
+	<script>
+        document.querySelector("#logo").onclick = function() {
+            window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/library-implementation"
+        }
+        document.querySelector("#logs").onclick = function() {
+            token = document.getElementById("checkoutToken").value; 
+            if(token != "")
+            { 
+                window.open("https://kibana.yooteam.ru/app/kibana#/discover/512b72f0-67bb-11ec-8c0f-812af5b98488?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(Payload),filters:!(('$state':(store:appState),meta:(alias:include,disabled:!f,index:'backend-payment-api-v3-main-*',key:query,negate:!f,type:custom,value:'%7B%22bool%22:%7B%22minimum_should_match%22:1,%22should%22:%5B%7B%22match_phrase%22:%7B%22category%22:%22SkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22AsyncSkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22ApiRequestLoggingFilter%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22BasicAuthCredentialsResolver%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22MerchantClientKeyCredentialsResolver%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22OauthAuthCenterTokenAuthenticationProvider%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22OauthYandexTokenAuthenticationProvider%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22MerchantNotificationSender%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22AsyncSkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22NotificationHistoryManager%22%7D%7D,%7B%22match_phrase%22:%7B%22level%22:%22WARN%22%7D%7D,%7B%22match_phrase%22:%7B%22level%22:%22ERROR%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22response%20body%22%7D%7D%5D%7D%7D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(category:SkipSensitiveParamsRequestLogger)),(match_phrase:(category:AsyncSkipSensitiveParamsRequestLogger)),(match_phrase:(category:ApiRequestLoggingFilter)),(match_phrase:(category:BasicAuthCredentialsResolver)),(match_phrase:(category:MerchantClientKeyCredentialsResolver)),(match_phrase:(category:OauthAuthCenterTokenAuthenticationProvider)),(match_phrase:(category:OauthYandexTokenAuthenticationProvider)),(match_phrase:(category:MerchantNotificationSender)),(match_phrase:(category:AsyncSkipSensitiveParamsRequestLogger)),(match_phrase:(category:NotificationHistoryManager)),(match_phrase:(level:WARN)),(match_phrase:(level:ERROR)),(match_phrase:(Payload:'response%20body')))))),('$state':(store:appState),meta:(alias:include,disabled:!f,index:'backend-payment-api-v3-main-*',key:query,negate:!t,type:custom,value:'%7B%22bool%22:%7B%22minimum_should_match%22:1,%22should%22:%5B%7B%22match_phrase%22:%7B%22methodid%22:%22POST%2Fapi%2Fv3%2Fwebhooks%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22END%20http%20request%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22Order%20not%20found%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22token%20not%20found%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22QUEUE%2FsubscriptionNotificationQueue%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22sendNotification%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22findNotificationHistoryEvent%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22createNewEvent%22%7D%7D%5D%7D%7D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(methodid:POST%2Fapi%2Fv3%2Fwebhooks)),(match_phrase:(Payload:'END%20http%20request')),(match_phrase:(Payload:'Order%20not%20found')),(match_phrase:(Payload:'token%20not%20found')),(match_phrase:(Payload:QUEUE%2FsubscriptionNotificationQueue)),(match_phrase:(Payload:sendNotification)),(match_phrase:(Payload:findNotificationHistoryEvent)),(match_phrase:(Payload:createNewEvent))))))),index:'backend-payment-api-v3-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%22"+ document.getElementById("shopid").value +"%22%20%22ДопТрейс%22%20%22ДопТрейс%22%20%22ДопТрейс%22%20%22ДопТрейс%22)%20%26%26%20Payload:%20(%22tokenize%22%20%22%22%20%22%22%20%22%22%20%22%22)%20%26%26%20NOT%20Payload:%20(%22%22%20%22%22%20%22%22%20%22%22%20%22%22)'),sort:!(!('@timestamp',desc)))");
+            }
+            else alert('Токен еще не сгенерирован!');
+        }
+
+        document.querySelector("#tokenize").onclick = function(){
+            shop = document.getElementById("shopid").value;       
+            if(shop >= 1000 && shop <= 999999)
+            {   
+                //if(!savedshop) return alert('shopID не сохранён');
+                try {
+                    const checkout = YooMoneyCheckout(shop);
+                    checkout.tokenize({
+                    number: document.getElementById('cardnumber').value,
+                    cvc: document.getElementById('cvv').value,
+                    month: document.getElementById('expM').value,
+                    year: document.getElementById('expY').value
+                    }).then(res => {
+                    if (res.status === 'success') {
+                        const { paymentToken } = res.data.response;                
+                        document.getElementById("checkoutToken").value = paymentToken;
+                    }
+                    if (res.status === 'error') {
+                        const { type } = res.error;
+                        document.getElementById("checkoutToken").value = 'Type: '+res.error.type+'\nStatus Code: '+res.error.status_code;
+                        const { params } = res.error;
+                        if(res.error.params.length == 0) {
+                            document.getElementById("checkoutToken").value +="\nCode: "+res.error.code+"\nMessage: "+res.error.message;
+                        }
+                        else {
+                            for(let i=0;i<res.error.params.length;i++)
+                            {
+                                document.getElementById("checkoutToken").value +="\nCode: "+res.error.params[i].code+" Message: "+res.error.params[i].message;
+                            }
+                        }
+                    }
+                    
+                    });
+                } catch(error) {
+                    console.log(error);
+                }
+                
+            }
+            else alert('Неверный shopID');
+        }        
+    </script>
+</body>
+</html>
