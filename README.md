@@ -6,8 +6,8 @@
 - [X] Скачать код в HTML
 - [X] Добавление СБП
 - [X] Модальное окно
-- [ ] checkout.js
-- [ ] Выбор обработки событий (return_url или на странице)
+- [X] checkout.js
 
 http://kiacode.space/
 http://kiacode.space/widgets
+http://kiacode.space/cjs
