@@ -64,14 +64,60 @@
                 <button class="text-field__btn" type="button" id="goarm" name="goarm" style="margin-left:5px; margin-top:5px;">АРМ</button>
             </div>
             <div class="widget-container" style="width: 55%;">
-                <br><fieldset style="height:550px">
+                <br><fieldset >
                     <legend>Тестовые карты:</legend>
-                    Заполню попозже + сделать кликабельными для автозаполнения <br><a target="_blank" href="https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card-data">Тестовые карты</a>
+                    <table class="cardInfo">
+                        <thead>
+                            <tr>
+                                <th>Номер карты</th>
+                                <th>Система</th>
+                                <th>3Ds</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="links"><a target="_blank" href="https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card-cancellation-details">Ошибочные сценарии</a></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td onclick="setCard(5555555555554477)" style="cursor: pointer;">5555555555554477</td><td>Mastercard</td><td>✔️</td></tr>
+                            <tr>
+                                <td onclick="setCard(5555555555554444)" style="cursor: pointer;">5555555555554444</td><td>Mastercard</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(6759649826438453)" style="cursor: pointer;">6759649826438453</td><td>Maestro</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(4793128161644804)" style="cursor: pointer;">4793128161644804</td><td>Visa</td><td>✔️</td></tr>
+                            <tr>
+                                <td onclick="setCard(4111111111111111)" style="cursor: pointer;">4111111111111111</td><td>Visa</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(4175001000000017)" style="cursor: pointer;">4175001000000017</td><td>Visa Electron</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(2200000000000004)" style="cursor: pointer;">2200000000000004</td><td>МИР</td><td>✔️</td></tr>
+                            <tr>
+                                <td onclick="setCard(2202474301322987)" style="cursor: pointer;">2202474301322987</td><td>МИР</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(370000000000002)" style="cursor: pointer;">370000000000002</td><td>American Express</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(3528000700000000)" style="cursor: pointer;">3528000700000000</td><td>JCB</td><td>❌</td></tr>
+                            <tr>
+                                <td onclick="setCard(36700102000000)" style="cursor: pointer;">36700102000000</td><td>Diners Club</td><td>❌</td></tr>
+                        </tbody>
+                        </tr>
+                    </table>
                 </fieldset>
             </div>
         </div> 
     </div>
 	<script>
+        function setCard(cardnumber) {
+            document.getElementById('cardnumber').value = cardnumber;
+            document.getElementById('cvv').value = "123";
+            document.getElementById('expM').value = "05";
+            document.getElementById('expY').value = "30";
+        }
         document.querySelector("#goarm").onclick = function() {
             if(String(document.getElementById("shopid").value).length > 0) window.open("https://arm.yooteam.ru/v3/shop-masters/shops?query="+document.getElementById("shopid").value+"&shop=active");
             else window.open("https://arm.yooteam.ru/v3/shop-masters/shops");            

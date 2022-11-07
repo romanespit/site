@@ -49,6 +49,16 @@ img{
     text-align : left;
 }
 
+.quote-box {
+    background-color: #252534;
+    box-shadow: 5px 4px 9px 7px #000000;
+    border-radius: 20px;
+}
+#titlename {
+    color: rgba(255,255,255,0.493);
+    text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+}
+
 @media only screen and (max-device-width: 640px) {
     .quote-container {
         width: 90vw;
@@ -73,6 +83,22 @@ footer {
 
 #person {
     font-style: italic;
-    margin-top: 1.5rem;
-    text-align: center;
+    padding-top: 1.5rem;
+    padding-right: 3.5rem;
+    padding-bottom: 1.5rem;
+    text-align: right;
+}
+#quote {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+#ttl {
+    font-size: 70%;
+
+    color: rgba(255, 255, 255, 0.493);
+    text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }

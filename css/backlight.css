@@ -1,5 +1,5 @@
 :root {
-	--duration: 20s;
+	--duration: 5s;
 }
 
 body {
@@ -32,7 +32,7 @@ footer {
 	width: 30%;
 	height: auto;
 
-	animation: var(--duration) steps(1, start) flip;
+	animation: var(--duration) step-start flip;
 }
 
 @keyframes move {
