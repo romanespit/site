@@ -37,7 +37,7 @@
                 <button class="text-field__btn" type="button" id="rndr" name="rndr" style="margin-top:5px;">Отрисовать/Обновить виджет</button>
                 <!--<button class="text-field__btn" type="button" id="logs" name="logs" style="margin-left:5px; margin-top:5px;">Kibana</button>-->
             </div>
-            <div class="widget-container" style="width: 55%;">
+            <div class="widget-container" style="width: 40%;">
                 <br><fieldset style="height:550px">
                     <legend>Виджет:</legend>
                     <div id="render-form" class="widget-container"></div>
@@ -86,10 +86,12 @@
                     },
                     error_callback(error) {
                         document.getElementById("tokenarea").value = "Ошибка:\n"+error;
-                    }
+                    },
+                    lang: "ru_RU"
                 });
                 wdgt.render('render-form');
                 rendered = true;    
+
             }
         }        
     </script>
