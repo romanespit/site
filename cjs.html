@@ -24,7 +24,7 @@
         </header>
 
         <div class="container clearfix">
-            <div id="settings-form" class="widget-container" style="width: 55%; margin-left: 15px;">
+            <div id="settings-form" class="widget-container" style="width: 40%; margin-left: 15px;">
                 <br>
                 <fieldset>
                     <legend>shopID</legend>
@@ -112,6 +112,12 @@
         </div> 
     </div>
 	<script>
+        /*const params = new URLSearchParams(window.location.search)   
+        document.getElementById('cardnumber').value = params.get('card');
+        document.getElementById("shopid").value = params.get('shopid');
+        document.getElementById('expM').value = params.get('expm');
+        document.getElementById('expY').value = params.get('expy');
+        document.getElementById('cvv').value = params.get('cvv');*/
         function setCard(cardnumber) {
             document.getElementById('cardnumber').value = cardnumber;
             document.getElementById('cvv').value = "123";
@@ -135,7 +141,13 @@
         }
 
         document.querySelector("#tokenize").onclick = function(){
-            shop = document.getElementById("shopid").value;       
+            shop = document.getElementById("shopid").value; 
+            /*params.set('shopid', shop);
+            params.set('card',document.getElementById('cardnumber').value);
+            params.set('expm',document.getElementById('expM').value);
+            params.set('expy',document.getElementById('expY').value);
+            params.set('cvv',document.getElementById('cvv').value);
+            window.location.search = params; */     
             if(shop >= 1000 && shop <= 999999)
             {
                 try {
