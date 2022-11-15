@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Получить токен карты для выплаты">
+    <meta property="og:description" content="Для проведения выплаты вам нужно получить с помощью виджета синоним банковской карты. Если у вас уже есть синоним нужной карты, можно использовать его. Если нет, получите синоним с помощью виджета:">
+    <meta property="og:url" content="http://kiacode.space/card-tokenizer">
+    <meta property="og:site_name" content="kiacode.space">
+    <meta property="og:image" content="https://raw.githubusercontent.com/KiaCode97/site/main/img/prev/card-tokenizer.jpg">
+    <title>Виджет токенизации карты для выплат</title>    
+    <link rel="stylesheet" href="css/po-t.css">
+    <script src="https://yookassa.ru/payouts-data/3.0.0/widget.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body style="font-family: 'Source Sans Pro', sans-serif">
+    <div class="content-wrapper">
+        <header class="header">
+            <p style="font-size: 30px; margin: 0; margin: 10px;" id="logo" class="logo" title="Документация">Токенизация карты для выплат (API)</p>
+        </header>
+
+        <div class="container clearfix">
+            <div id="settings-form" class="widget-container" style="width: 55%; margin-left: 15px;">
+                <br>
+                <fieldset>
+                    <legend>agentID</legend>
+                    <div class="text-field">
+                        <div class="text-field__group">
+                            <input class="text-field__input" type="agentid" id="agentid" name="agentid" size="15" placeholder="agentID">
+                        </div>
+                    </div>               
+                </fieldset>             
+                <button class="text-field__btn" type="button" id="rndr" name="rndr" style="margin-top:5px;">Отрисовать/Обновить виджет</button>
+                <!--<button class="text-field__btn" type="button" id="logs" name="logs" style="margin-left:5px; margin-top:5px;">Kibana</button>-->
+            </div>
+            <div class="widget-container" style="width: 55%;">
+                <br><fieldset style="height:550px">
+                    <legend>Виджет:</legend>
+                    <div id="render-form" class="widget-container"></div>
+                </fieldset>
+                <fieldset style="height: 20%;">
+                    <legend>Синоним карты/Ошибка:</legend>
+                    <textarea id="tokenarea" style="width:100%; height:77%; font-family: 'Source Sans Pro', sans-serif; resize: none;" readonly>Синоним появится после токенизации</textarea>                  
+                </fieldset>
+            </div>
+        </div> 
+    </div>
+	<script>
+        rendered = false;
+        document.querySelector("#logo").onclick = function() {
+            window.location.href = "https://yookassa.ru/developers/payouts/making-payouts/bank-card/using-payout-widget/making-payouts-with-synonym#make-payout"
+        }
+        /*document.querySelector("#logs").onclick = function() {
+            token = document.getElementById("checkoutToken").value; 
+            if(token != "")
+            { 
+                window.open("https://kibana.yooteam.ru/app/kibana#/discover/512b72f0-67bb-11ec-8c0f-812af5b98488?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(Payload),filters:!(('$state':(store:appState),meta:(alias:include,disabled:!f,index:'backend-payment-api-v3-main-*',key:query,negate:!f,type:custom,value:'%7B%22bool%22:%7B%22minimum_should_match%22:1,%22should%22:%5B%7B%22match_phrase%22:%7B%22category%22:%22SkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22AsyncSkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22ApiRequestLoggingFilter%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22BasicAuthCredentialsResolver%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22MerchantClientKeyCredentialsResolver%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22OauthAuthCenterTokenAuthenticationProvider%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22OauthYandexTokenAuthenticationProvider%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22MerchantNotificationSender%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22AsyncSkipSensitiveParamsRequestLogger%22%7D%7D,%7B%22match_phrase%22:%7B%22category%22:%22NotificationHistoryManager%22%7D%7D,%7B%22match_phrase%22:%7B%22level%22:%22WARN%22%7D%7D,%7B%22match_phrase%22:%7B%22level%22:%22ERROR%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22response%20body%22%7D%7D%5D%7D%7D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(category:SkipSensitiveParamsRequestLogger)),(match_phrase:(category:AsyncSkipSensitiveParamsRequestLogger)),(match_phrase:(category:ApiRequestLoggingFilter)),(match_phrase:(category:BasicAuthCredentialsResolver)),(match_phrase:(category:MerchantClientKeyCredentialsResolver)),(match_phrase:(category:OauthAuthCenterTokenAuthenticationProvider)),(match_phrase:(category:OauthYandexTokenAuthenticationProvider)),(match_phrase:(category:MerchantNotificationSender)),(match_phrase:(category:AsyncSkipSensitiveParamsRequestLogger)),(match_phrase:(category:NotificationHistoryManager)),(match_phrase:(level:WARN)),(match_phrase:(level:ERROR)),(match_phrase:(Payload:'response%20body')))))),('$state':(store:appState),meta:(alias:include,disabled:!f,index:'backend-payment-api-v3-main-*',key:query,negate:!t,type:custom,value:'%7B%22bool%22:%7B%22minimum_should_match%22:1,%22should%22:%5B%7B%22match_phrase%22:%7B%22methodid%22:%22POST%2Fapi%2Fv3%2Fwebhooks%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22END%20http%20request%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22Order%20not%20found%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22token%20not%20found%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22QUEUE%2FsubscriptionNotificationQueue%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22sendNotification%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22findNotificationHistoryEvent%22%7D%7D,%7B%22match_phrase%22:%7B%22Payload%22:%22createNewEvent%22%7D%7D%5D%7D%7D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(methodid:POST%2Fapi%2Fv3%2Fwebhooks)),(match_phrase:(Payload:'END%20http%20request')),(match_phrase:(Payload:'Order%20not%20found')),(match_phrase:(Payload:'token%20not%20found')),(match_phrase:(Payload:QUEUE%2FsubscriptionNotificationQueue)),(match_phrase:(Payload:sendNotification)),(match_phrase:(Payload:findNotificationHistoryEvent)),(match_phrase:(Payload:createNewEvent))))))),index:'backend-payment-api-v3-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%22"+ document.getElementById("shopid").value +"%22%20%22ДопТрейс%22%20%22ДопТрейс%22%20%22ДопТрейс%22%20%22ДопТрейс%22)%20%26%26%20Payload:%20(%22tokenize%22%20%22%22%20%22%22%20%22%22%20%22%22)%20%26%26%20NOT%20Payload:%20(%22%22%20%22%22%20%22%22%20%22%22%20%22%22)'),sort:!(!('@timestamp',desc)))");
+            }
+            else alert('Токен еще не сгенерирован!');
+        }*/
+
+        document.querySelector("#rndr").onclick = function(){
+            if(rendered)
+            {
+                wdgt.destroy();
+                rendered = false;
+            }
+            agentid = document.getElementById("agentid").value;
+            if(agentid < 100000 || agentid > 999999)
+            {
+                alert('Введите agentID');
+            }
+            else
+            {   
+                wdgt = new window.PayoutsData({
+                    type: 'payout',
+                    account_id: agentid,
+                    success_callback(data) {
+                        document.getElementById("tokenarea").value = "Синоним карты: "+data.payout_token;
+                        document.getElementById("tokenarea").value += "\nКарта: "+data.first6+"** **** "+data.last4+" ("+data.card_type+")";
+                        document.getElementById("tokenarea").value += "\nБанк: "+data.issuer_name+" ("+data.issuer_country+")";
+                    },
+                    error_callback(error) {
+                        document.getElementById("tokenarea").value = "Ошибка:\n"+error;
+                    }
+                });
+                wdgt.render('render-form');
+                rendered = true;    
+            }
+        }        
+    </script>
+</body>
+</html>
