@@ -11,3 +11,4 @@
 http://kiacode.space/
 http://kiacode.space/widgets
 http://kiacode.space/cjs
+http://kiacode.space/card-tokenizer
