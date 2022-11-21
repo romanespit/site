@@ -69,13 +69,13 @@ img{
 }
 
 svg {
-    filter: drop-shadow(0px 0px 20px rgb(46 229 157 / 0.4));
+    filter: drop-shadow(0px 0px 10px rgb(82 79 78 / 0.4));
 }
 
 #titlename {
     
-    color: rgba(46, 229, 157);
-    text-shadow: 0 0 15px rgba(46, 229, 157,.5), 0 0 10px rgba(46, 229, 157,.5);
+    color: rgb(82, 79, 78);
+    text-shadow: 0 0 15px rgba(82, 79, 78,.5), 0 0 10px rgba(82, 79, 78,.5);
 }
 
 @media only screen and (max-device-width: 640px) {
