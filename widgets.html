@@ -37,7 +37,9 @@
     <!-- /Yandex.Metrika counter -->
     <div class="content-wrapper">
         <header class="header">
-            <p style="font-size: 30px; margin: 0; margin: 10px;" id="logo" class="logo" title="Документация">Тестовые виджеты</p>
+            <p style="font-size: 30px; margin: 0; margin: 10px;">Тестовые виджеты</p>
+            <a class="floating-button" href="https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start" >Дока</a>
+            <a class="floating-button" href="/utilities" >Все утилиты</a>
             <!--<div class="text-field">
                 <label class="text-field__label" for="search">Confirmation Token</label>
                 <div class="text-field__group">
@@ -170,9 +172,6 @@
             //if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Скачать страницу можно будет после отрисовки") download(generateHTML());
             if(token.substring(0,2) == "ct") download(generateHTML());
             else alert('Введите confirmation token');            
-        }
-        document.querySelector("#logo").onclick = function() {
-            window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start"
         }
         document.querySelector("#go").onclick = function() {
             if(String(document.getElementById("shop").value).length > 0) window.open("https://arm.yooteam.ru/v3/shop-masters/shops?query="+document.getElementById("shop").value+"&shop=active");

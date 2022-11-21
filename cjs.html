@@ -36,7 +36,9 @@
     <!-- /Yandex.Metrika counter -->
     <div class="content-wrapper">
         <header class="header">
-            <p style="font-size: 30px; margin: 0; margin: 10px;" id="logo" class="logo" title="Документация">checkout.js</p>
+            <p style="font-size: 30px; margin: 0; margin: 10px;">checkout.js</p>
+            <a class="floating-button" href="https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/library-implementation">Дока</a>
+            <a class="floating-button" href="/utilities">Все утилиты</a>
         </header>
 
         <div class="container clearfix">
@@ -143,9 +145,6 @@
         document.querySelector("#goarm").onclick = function() {
             if(String(document.getElementById("shopid").value).length > 0) window.open("https://arm.yooteam.ru/v3/shop-masters/shops?query="+document.getElementById("shopid").value+"&shop=active");
             else window.open("https://arm.yooteam.ru/v3/shop-masters/shops");            
-        }
-        document.querySelector("#logo").onclick = function() {
-            window.location.href = "https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/library-implementation"
         }
         document.querySelector("#logs").onclick = function() {
             token = document.getElementById("checkoutToken").value; 
