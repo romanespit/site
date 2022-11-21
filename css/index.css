@@ -1,5 +1,5 @@
 body {
-    background     : #111118;
+    background     : url(https://github.com/KiaCode97/site/blob/main/img/background-black.png?raw=true);
     color          : #FFFDFD;
     margin         : 0;
     display        : flex;
@@ -50,7 +50,7 @@ img{
 }
 
 .quote-box {
-    background-color: #252534;
+    background-color: #171720;
     box-shadow: 5px 4px 9px 7px #00000085;
     border-radius: 20px;
 }
