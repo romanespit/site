@@ -1,6 +1,7 @@
 body {
-    background     : #111118;
-    color          : #FFFDFD;
+    
+    background: url(https://raw.githubusercontent.com/KiaCode97/site/main/img/background.png);
+    color          : #000000;
     margin         : 0;
     display        : flex;
     flex-direction : column;
