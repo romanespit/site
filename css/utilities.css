@@ -1,0 +1,115 @@
+body {
+    background     : #111118;
+    color          : #FFFDFD;
+    margin         : 0;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    font-family    : Inter, sans-serif;
+}
+
+
+.tittlee {
+    align-self   : center;
+    text-align   : center;
+    margin-bottom: 3em;
+    order: 0;
+}
+.container {
+    align-self   : center;
+    text-align   : center;
+    margin-bottom: 3em;
+    margin-top:3em;
+    display: flex;
+    order: 0;
+}
+
+.banner-block {
+    align-self   : center;
+    text-align   : center;
+    flex: 1 1 auto;
+    flex-direction: row;
+    margin-bottom: 3em;
+    margin-left: 3em;
+    margin-right: 3em;
+    order: 0;
+    width: 20%;
+}
+
+.floating-button {
+    text-decoration: none;
+    display: inline-block;
+    width: 270px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+  }
+  .floating-button:hover {
+    background: rgb(46, 229, 157);
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
+  }
+
+img{
+    max-width: 100%; 
+    max-width: 300px;  
+}
+
+svg {
+    filter: drop-shadow(0px 0px 20px rgb(46 229 157 / 0.4));
+}
+
+#titlename {
+    
+    color: rgba(46, 229, 157);
+    text-shadow: 0 0 15px rgba(46, 229, 157,.5), 0 0 10px rgba(46, 229, 157,.5);
+}
+
+@media only screen and (max-device-width: 640px) {
+    .quote-container {
+        width: 90vw;
+    }
+
+    .img-lost {
+        width: 80vw;
+    }
+}
+footer {
+    text-align: center;
+    margin: 1.5em 0;
+    font-size: 80%;
+}
+footer a {
+    color      : rgb(46, 229, 157);
+    font-weight: 500;
+}
+.projects {
+    line-height: 1.5em;
+}
+
+.projects>div {
+    padding-left: 1em;
+}
+
+
+#ttl {
+    font-size: 70%;
+
+    color: rgba(249, 168, 38, 0.493);
+    text-shadow: 0 0 15px rgba(249, 168, 38,.5), 0 0 10px rgba(249, 168, 38,.5);
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
