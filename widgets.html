@@ -40,7 +40,8 @@
             <p style="font-size: 30px; margin: 0; margin: 10px;">Тестовые виджеты</p>
             <a class="floating-button" href="https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/quick-start" >Дока</a>
             <a class="floating-button" href="/utilities" >Все утилиты</a>
-            <!--<div class="text-field">
+            <!--<a class="floating-button" style="width: 45px;" href="/utilities" >?</a>
+            <div class="text-field">
                 <label class="text-field__label" for="search">Confirmation Token</label>
                 <div class="text-field__group">
                     <button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>
@@ -60,7 +61,12 @@
                         <div class="text-field__group">
                             <!--<button class="text-field__btnl" type="button" id="logs" name="logs-btn">Kibana frontend</button>-->
                             <input class="text-field__input" type="conftoken" id="conftoken" name="conftoken" size="50">
-                            <input type="checkbox" id="ismodal" name="ismodal" value="ismodal"><label for="ismodal">Модальное окно</label>
+                            <label class="toggler-wrapper style-1">
+                                <input type="checkbox" id="ismodal" name="ismodal" value="ismodal">
+                                <div class="toggler-slider">
+                                  <div class="toggler-knob">M</div>
+                                </div>
+                            </label>
                         </div>
                     </div>               
                 </fieldset>
