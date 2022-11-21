@@ -19,6 +19,7 @@ ____
 
 1. [Главная](http://kiacode.space/)
     * [404](http://kiacode.space/404)
+    * [Утилиты](http://kiacode.space/utilities)
 2. [Виджеты](http://kiacode.space/widgets)
     * [return_url](http://kiacode.space/return_url)
 3. [checkout.js](http://kiacode.space/cjs)
