@@ -47,7 +47,7 @@ html {
         font-size: 14px;
         line-height: 1.4;
         color: #333;
-        background-color: #fff;
+        background: url(https://raw.githubusercontent.com/KiaCode97/site/main/img/background.png);
     }
     .header, .content-wrapper, .container, .content {
         display: -webkit-flex;
@@ -91,7 +91,7 @@ html {
         order: 0;
     }
     .widget-container {
-    background: #ffffff;
+    background: url(https://raw.githubusercontent.com/KiaCode97/site/main/img/background.png);
     flex: 0 0 auto;
     order: 0;
     }
