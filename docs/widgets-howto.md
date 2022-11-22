@@ -1,4 +1,4 @@
-# Как использовать страницу виджетов
+# Как использовать [страницу виджетов](http://kiacode.space/widgets)
 Здесь объясню, как пользоваться этой утилитой.
 Общая документация [здесь](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)
 
