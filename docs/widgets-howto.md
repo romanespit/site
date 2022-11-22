@@ -15,6 +15,7 @@ ____
 Для того, чтобы отправить запрос к API ЮKassa нам потребуется любой REST клиент.
 Подойдет, например, [Insomnia](https://insomnia.rest/).
 Скачайте [коллекцию запросов](https://github.com/KiaCode97/site/raw/main/docs/Insomnia_Yookassa.zip) и [импортируйте](https://github.com/KiaCode97/site/blob/main/docs/widgets-howto.md#импорт-коллекции-в-insomnia) в клиент.
+
 [:arrow_up:Оглавление](#Оглавление)
 
 ### Импорт коллекции в Insomnia
