@@ -9,7 +9,7 @@
     <meta property="og:site_name" content="kiacode.space">
     <meta property="og:url" content="http://kiacode.space/email">
     <meta property="og:image" content="https://raw.githubusercontent.com/KiaCode97/site/main/img/prev/index.jpg">
-    <title>Тестовые виджеты</title>    
+    <title>Email форма оплаты</title>    
     <link rel="stylesheet" href="css/email.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +28,11 @@
 
         <div class="container clearfix" style="margin: 10px auto;">
             <form style="margin:10px auto" action="https://yoomoney.ru/eshop.xml" method="post" class="form-text">
-                <label class="form-text" for="shopId">shopId</label><br>
+                <label class="form-text" for="shopId">shopId</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
                 <input class="form-text form-input" name="shopId" value="965945" type="text"/>
-                <label class="form-text" for="scid">scid</label><br>
+                <label class="form-text" for="scid">scid</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
                 <input class="form-text form-input" name="scid" value="2416128" type="text"/>
-                <label class="form-text" for="sum">sum (Сумма платежа)</label><br><input class="form-text form-input" name="sum" value="10.50" type="text"/><br>
+                <label class="form-text" for="sum">sum (Сумма платежа)</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br><input class="form-text form-input" name="sum" value="10.50" type="text"/><br>
                 <label class="form-text" for="customerNumber">customerNumber (идентификатор плательщика)</label><br>
                 <input class="form-text form-input" name="customerNumber" placeholder="123456, ivanov" type="text"/><br>
                 <input name="paymentType" value="AC" type="hidden"/>
