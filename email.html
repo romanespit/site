@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Email форма оплаты">
+    <meta property="og:description" content="Простая email форма для оплаты ЮKassa">
+    <meta property="og:site_name" content="kiacode.space">
+    <meta property="og:url" content="http://kiacode.space/email">
+    <meta property="og:image" content="https://raw.githubusercontent.com/KiaCode97/site/main/img/prev/index.jpg">
+    <title>Тестовые виджеты</title>    
+    <link rel="stylesheet" href="css/email.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body style="font-family: 'Source Sans Pro', sans-serif">
+    
+    <div class="content-wrapper">
+        <header class="header">
+            <p style="font-size: 30px; margin: 0; margin: 10px;">Email форма</p>
+            <a class="floating-button" target="_blank" href="https://yookassa.ru/docs/payment-solution/payments/payment-form/email" >Дока</a>
+            <a class="floating-button" href="/utilities" >Все утилиты</a>
+        </header>
+
+        <div class="container clearfix" style="margin: 10px auto;">
+            <form style="margin:10px auto" action="https://yoomoney.ru/eshop.xml" method="post" class="form-text">
+                <label class="form-text" for="shopId">shopId</label><br>
+                <input class="form-text form-input" name="shopId" value="965945" type="text"/>
+                <label class="form-text" for="scid">scid</label><br>
+                <input class="form-text form-input" name="scid" value="2416128" type="text"/>
+                <label class="form-text" for="sum">sum (Сумма платежа)</label><br><input class="form-text form-input" name="sum" value="10.50" type="text"/><br>
+                <label class="form-text" for="customerNumber">customerNumber (идентификатор плательщика)</label><br>
+                <input class="form-text form-input" name="customerNumber" placeholder="123456, ivanov" type="text"/><br>
+                <input name="paymentType" value="AC" type="hidden"/>
+                <label class="form-text"for="orderNumber">orderNumber (номер заказа)</label><br>
+                <input class="form-text form-input" name="orderNumber" placeholder="111-222 ABC" type="text"/><br>
+                <!--<label class="form-text"for="cps_email">cps_email (Почта)</label><br>
+                <input class="form-text form-input" type="text" name="cps_email" placeholder="me@kiacode.space" /><br>
+                <label class="form-text"for="cps_phone">cps_phone (Телефон)</label><br>
+                <input class="form-text form-input" type="text" name="cps_phone" placeholder="79201234567" /><br>-->
+                <input name="orderDetails" value="Описание заказа." type="hidden"/>
+                <input name="shopSuccessURL" value="http://kiacode.space/email-success" type="hidden"/>
+                <input name="shopFailURL" value="http://kiacode.space/email-fail" type="hidden"/>
+                <input style="margin: 20px auto;" class="floating-button" type="submit" value="Заплатить"/>
+            </form>
+        </div> 
+    </div>
+    <footer>
+        <span style="margin: 0 0.4em;">made with</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#EF3E36" viewBox="0 0 16 16" style="height: 1.2em; vertical-align: middle">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+        </svg>
+        <span style="margin: 0 0.4em;">by</span>
+        <a href="https://kiacode.space">kiacode</a>
+        <span style="margin: 0 0.4em;">|</span>
+        <a target="_blank" href="https://github.com/KiaCode97/site">source</a>
+        <span style="margin: 0 0.4em;">|</span>
+        <a target="_blank" href="https://www.donationalerts.com/r/romanespit">buy me some food</a>
+    </footer>
+</body>
+</html>
