@@ -187,13 +187,31 @@ html {
     .text-field__btnl:hover {
         background-color: #bdbdbd;
         }
-    .text-field__group .text-field__input {
-    border-top-right-radius: 10;
-    border-bottom-right-radius: 10;
-    position: relative;
-    z-index: 2;
-    size: 150;
-    }
+        .text-field__group .text-field__input {
+          border-top-right-radius: 10;
+          border-bottom-right-radius: 10;
+          position: relative;
+          z-index: 2;
+          size: 150;
+          
+          color: #212529;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #bdbdbd;
+          border-radius: 0.25rem;
+          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+          }
+          .text-field__input::placeholder {
+            color: #212529;
+            opacity: 0.4;
+          }
+          .text-field__input:focus {
+            color: #212529;
+            background-color: #fff;
+            border-color: #03A885;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(46, 229, 157, 0.25);
+          }
     .text-field__group .text-field__btn {
     position: relative;
     border-top-left-radius: 0;

@@ -141,6 +141,7 @@ html {
         box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
         transition: .3s;
         border: 0px solid #999;
+        cursor: pointer;
       }
       .form-text {
         font-family: 'Montserrat', sans-serif;
