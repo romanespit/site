@@ -35,7 +35,21 @@
                 <label class="form-text" for="sum">sum (Сумма платежа)</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br><input class="form-text form-input" name="sum" value="10.50" type="text"/><br>
                 <label class="form-text" for="customerNumber">customerNumber (идентификатор плательщика)</label><br>
                 <input class="form-text form-input" name="customerNumber" placeholder="123456, ivanov" type="text"/><br>
-                <input name="paymentType" value="AC" type="hidden"/>
+                <label class="form-text" for="paymentType">paymentType (способ оплаты) </label><a style="color: #2ee59d;" target="_blank" href="https://yookassa.ru/docs/payment-solution/payments/supplementary/reference/payment-types#overview">doc</a><br>
+                <!--<input class="form-text form-input" name="paymentType" list="paytype" type="text"/>-->
+                <select class="form-text form-input" name="paymentType">
+                    <option value = "" label = "Все способы"></option>
+                    <option value = "PC" label = "PC - Кошелек ЮMoney"></option>
+                    <option value = "AC" label = "AC - Банковская карта"></option>
+                    <option value = "MC" label = "MC - Баланс телефона"></option>
+                    <option value = "GP" label = "GP - Наличные"></option>
+                    <option value = "SB" label = "SB - SberPay"></option>
+                    <option value = "TB" label = "TB - Тинькофф"></option>
+                    <option value = "AB" label = "AB - Альфа-Клик"></option>
+                    <option value = "QW" label = "QW - QIWI Кошелек"></option>
+                    <option value = "CR" label = "CR - Заплатить по частям"></option>
+                    <option value = "2S" label = "2S - Сбербанк Бизнес Онлайн (B2B-платежи)"></option>
+                </select><br>
                 <label class="form-text"for="orderNumber">orderNumber (номер заказа)</label><br>
                 <input class="form-text form-input" name="orderNumber" placeholder="111-222 ABC" type="text"/><br>
                 <!--<label class="form-text"for="cps_email">cps_email (Почта)</label><br>
