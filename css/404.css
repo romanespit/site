@@ -127,20 +127,6 @@ h1 {
 h1:hover {
     cursor: default;
 }
-@keyframes asdd2 {
-    0% {
-        text-shadow: 0 0 30px rgba(255, 255, 255, .5);
-    }
-    33% {
-        text-shadow: 0 0 10px rgba(255, 255, 255, .4);
-    }
-    66% {
-        text-shadow: 0 0 20px rgba(255, 255, 255, .2);
-    }
-    100% {
-        text-shadow: 0 0 40px rgba(255, 255, 255, .8);
-    }
-}
 @keyframes asdd {
     0% {
         text-shadow: 0 0 30px rgba(0, 0, 0, .5);
