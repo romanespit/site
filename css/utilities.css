@@ -9,6 +9,12 @@ body {
     font-family    : Inter, sans-serif;
 }
 
+canvas {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 25px;
+}
 
 .tittlee {
     align-self   : center;
