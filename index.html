@@ -1,82 +1,107 @@
 
-<!DOCTYPE html>
-<html lang="ru" prefix="og: //ogp.me/ns#">
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="img/icon.png" />
-    <meta property="og:type" content="website">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>«Feeling lost?»</title>
+    <meta name="description" content="Главная страница. Чувствуешь себя потерянным, дружок? А находил ли ты себя когда-нибудь?">
     <meta property="og:title" content="«Feeling lost?»">
     <meta property="og:site_name" content="kiacode.space">
     <meta property="og:description" content="Главная страница. Чувствуешь себя потерянным, дружок? А находил ли ты себя когда-нибудь?">
-    <meta property="og:url" content="http://kiacode.space">
     <meta property="og:image" content="https://raw.githubusercontent.com/KiaCode97/site/main/img/prev/index.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>«Feeling lost?»</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/index.css" />
-
-    <script src="js/quotes.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="img/favicon.png">
+    <link rel="canonical" href="https://kiacode.space/">
 </head>
-
 <body>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-        ym(91199957, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/91199957" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    <div class="container">
-        <h1 id="titlename">Feeling lost?</h1>
-        <div class="wrapper-img">
-            <img src="img/logo.png" alt=""/>
-            <img class="img-hide" src="img/icon.png" alt="" />
-        </div>
-        <div class="quote-container quote-box">
-            <div id="ttl">Случайная фраза</div>
-            <div id="quote"></div>
-            <div id="person"></div>
-        </div>
-    </div>
-    <div class="container link-block">
-        <div class="quote-container projects">
-            <p style="opacity: 60%;">links</p>
-            <div>
-                <img src="img/telegram.ico" width="15px" height="15px"/> <a href="tg://resolve?domain=KIAC0DE">telegram</a> | 
-                <img src="img/steam.png" width="15px" height="15px"/> <a href="https://steamcommunity.com/profiles/76561199102123654">steam</a> | 
-                <img src="img/twitch.png" width="15px" height="15px"/> <a target="_blank" href="https://twitch.tv/romanespit">twitch</a> | 
-                <img src="img/discord.png" width="15px" height="15px"/> <a target="_blank" href="https://discord.com/users/324994752321945601">discord acc</a><br> 
-                <img src="img/discord.png" width="15px" height="15px"/> <a target="_blank" href="https://discord.gg/72URt2P">discord server</a> | 
-                <img src="img/kinopoisk.png" width="15px" height="15px"/> <a target="_blank" href="https://www.kinopoisk.ru/user/16858944/votes/list/ord/rating/#list">kinopoisk</a> | 
-                <img src="img/yamusic.png" width="15px" height="15px"/> <a target="_blank" href="https://music.yandex.ru/users/cs-bomba.ru/playlists/3">music</a> | 
-                <img src="img/favicon.ico" width="15px" height="15px"/> <a href="/utilities">utilities</a>
+    <div class="main">
+        <div class="wrapper">
+            <div class="author">
+                <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path fill="#ffffff" d="m59.208 25.466c-2.627.327-5.248-.162-7.577-1.417-6.135-3.303-13.062-5.049-20.03-5.049-8.511 0-16.719 2.914-23.296 8.07 5.941-7.615 14.982-12.07 24.802-12.07 8.911 0 17.69 2.374 25.389 6.864l1.008-1.728c-8.004-4.668-17.131-7.136-26.397-7.136-11.687 0-22.337 5.933-28.489 15.87l-3.469 5.604c-.282.457-.154 1.055.291 1.355.172.115.367.171.559.171.309 0 .612-.142.808-.409.672-.916 1.395-1.784 2.145-2.624l12.836 7.813c4.534 2.761 9.738 4.22 15.048 4.22 9.835 0 18.906-4.923 24.268-13.169l2.891-4.447 3.13-.391-.248-1.984zm-26.208 1.39c3.029 0 5.533-2.257 5.937-5.176 1.645.306 3.271.712 4.866 1.219-.964 5.159-5.469 8.958-10.803 8.958-5.549 0-10.18-4.132-10.895-9.545 1.609-.446 3.25-.787 4.918-1.005.232 3.098 2.82 5.549 5.977 5.549zm-1.398-5.856c1.79 0 3.576.131 5.347.369-.255 1.962-1.918 3.487-3.948 3.487-2.121 0-3.844-1.664-3.975-3.752.854-.062 1.712-.104 2.576-.104zm17.975 16.17-3.892-1.946-1.853-2.779-1.664 1.109 1.274 1.911-4.758 1.586.633 1.897 5.607-1.869 2.828 1.414c-4.349 2.895-9.505 4.507-14.916 4.507-4.139 0-8.204-.965-11.898-2.784l3.005-1.127 3.61 1.805.895-1.789-2.459-1.229 1.566-1.044-1.109-1.664-2.904 1.936-4.918 1.844-9.148-5.568 4.693-2.346 6.079.868.805 2.414 1.896-.633-1-3c-.119-.359-.432-.62-.807-.673l-5.021-.717 1.293-1.293h2.586v-2h-3c-.266 0-.52.105-.707.293l-2.886 2.885-5.949 2.974-1.102-.671c3.896-3.888 8.633-6.814 13.807-8.571.988 6.234 6.394 10.946 12.837 10.946 6.199 0 11.458-4.341 12.716-10.285 1.701.636 3.364 1.376 4.967 2.239 2.117 1.14 4.441 1.726 6.813 1.746l-.657 1.01-6.499-.542-2.785-1.857c-.396-.264-.924-.212-1.262.125l-2 2 1.414 1.414 1.42-1.42 1.303.869-2.137 2.137 1.414 1.414 2.672-2.672 5.223.435-.176.27c-1.617 2.489-3.6 4.644-5.849 6.431z"/>
+                        <path fill="#ffffff" d="m58.324 38.263-.942.864c-6.945 6.367-15.96 9.873-25.382 9.873s-18.437-3.506-25.382-9.874l-.942-.864-1.352 1.475.942.864c7.316 6.706 16.81 10.399 26.734 10.399s19.418-3.693 26.733-10.399l.942-.864z"/>
+                    </g>
+                </svg>
+                <div>
+                    <h1>romanespit</h1>
+                    <p><a href="mailto:i@kiacode.space?subject=Feedback%20from%20site"><span >i@kiacode.space</span></a></p>
+                </div>
+            </div>
+            <div class="link-bar">                
+                <div class="link-row">
+                    <a class="socials" href="https://twitch.tv/romanespit" target="_blank">
+                        <span class="social-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentcolor">
+                                <path d="M 5.3632812 2 L 2 6.6367188 L 2 20 L 7 20 L 7 23 L 10 23 L 13 20 L 17 20 L 22 15 L 22 2 L 5.3632812 2 z M 6 4 L 20 4 L 20 13 L 17 16 L 12 16 L 9 19 L 9 16 L 6 16 L 6 4 z M 11 7 L 11 12 L 13 12 L 13 7 L 11 7 z M 16 7 L 16 12 L 18 12 L 18 7 L 16 7 z">
+                                </path>
+                            </svg>
+                        </span>
+                        twitch
+                    </a>
+                    <a class="socials" href="tg://resolve?domain=KIAC0DE" target="_blank">
+                        <span class="social-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"
+                                fill="currentcolor">
+                                <path
+                                    d="M5.83,23.616c12.568-5.529,28.832-12.27,31.077-13.203c5.889-2.442,7.696-1.974,6.795,3.434 c-0.647,3.887-2.514,16.756-4.002,24.766c-0.883,4.75-2.864,5.313-5.979,3.258c-1.498-0.989-9.059-5.989-10.7-7.163 c-1.498-1.07-3.564-2.357-0.973-4.892c0.922-0.903,6.966-6.674,11.675-11.166c0.617-0.59-0.158-1.559-0.87-1.086 c-6.347,4.209-15.147,10.051-16.267,10.812c-1.692,1.149-3.317,1.676-6.234,0.838c-2.204-0.633-4.357-1.388-5.195-1.676 C1.93,26.43,2.696,24.995,5.83,23.616z">
+                                </path>
+                            </svg>
+                        </span>
+                        telegram
+                    </a>
+                    <a class="socials" href="https://steamcommunity.com/profiles/76561199102123654" target="_blank">
+                        <span class="social-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 65 65" fill="currentcolor">
+                                <path d="M30.31 23.985l.003.158-7.83 11.375c-1.268-.058-2.54.165-3.748.662a8.14 8.14 0 0 0-1.498.8L.042 29.893s-.398 6.546 1.26 11.424l12.156 5.016c.6 2.728 2.48 5.12 5.242 6.27a8.88 8.88 0 0 0 11.603-4.782 8.89 8.89 0 0 0 .684-3.656L42.18 36.16l.275.005c6.705 0 12.155-5.466 12.155-12.18s-5.44-12.16-12.155-12.174c-6.702 0-12.155 5.46-12.155 12.174zm-1.88 23.05c-1.454 3.5-5.466 5.147-8.953 3.694a6.84 6.84 0 0 1-3.524-3.362l3.957 1.64a5.04 5.04 0 0 0 6.591-2.719 5.05 5.05 0 0 0-2.715-6.601l-4.1-1.695c1.578-.6 3.372-.62 5.05.077 1.7.703 3 2.027 3.696 3.72s.692 3.56-.01 5.246M42.466 32.1a8.12 8.12 0 0 1-8.098-8.113 8.12 8.12 0 0 1 8.098-8.111 8.12 8.12 0 0 1 8.1 8.111 8.12 8.12 0 0 1-8.1 8.113m-6.068-8.126a6.09 6.09 0 0 1 6.08-6.095c3.355 0 6.084 2.73 6.084 6.095a6.09 6.09 0 0 1-6.084 6.093 6.09 6.09 0 0 1-6.081-6.093z"/>
+                            </svg>
+                        </span>
+                        steam
+                    </a>
+                </div>
+                <div class="link-row">
+                    <a class="socials" href="https://www.kinopoisk.ru/user/16858944/votes/list/ord/rating/#list" target="_blank">
+                        <span class="social-logo">
+                            <svg width="18" height="18" viewBox="0 0 301 300" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M297.918 169.416L160.559 160.146L286.362 210.844C292.089 197.897 296.044 183.984 297.918 169.416Z" />
+                                <path d="M269.71 239.454C242.492 276.198 198.929 300 149.831 300C67.3602 300 0.504333 232.843 0.504333 150C0.504333 67.1573 67.3602 0 149.831 0C199.02 0 242.655 23.8911 269.862 60.7518L145.112 127.827L225.39 45H180.891L126.237 121.203V45H90.1003V255H126.237V178.92L180.891 255H225.39L147.197 174.777L269.71 239.454Z" />
+                                <path d="M286.362 89.1559L161.437 139.494L297.918 130.581C296.043 116.014 292.088 102.102 286.362 89.1559Z" />
+                                </svg>
+                        </span>
+                        kinopoisk
+                    </a>
+                    <a class="socials" href="https://music.yandex.ru/users/cs-bomba.ru/playlists/3" target="_blank">
+                        <span class="social-logo">
+                            <svg width="18" height="18" viewBox="0 0 165 165" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M33.9834 16.8654C46.1223 7.87059 60.4694 2.43314 75.4224 1.08203V25.8256C65.7566 27.0787 56.5254 30.7794 48.6291 36.6305C38.7418 43.9569 31.4707 54.2669 27.8885 66.0399C24.3062 77.8129 24.6024 90.4254 28.7333 102.017C32.8642 113.609 40.6111 123.567 50.8315 130.421C61.0518 137.275 73.2043 140.663 85.4967 140.086C97.789 139.508 109.57 134.995 119.103 127.213C128.635 119.43 135.414 108.79 138.44 96.8622C140.551 88.542 140.757 79.9024 139.104 71.5733L159.882 54.8691L159.868 54.7344C165.477 70.1632 166.334 86.9485 162.285 102.911C157.962 119.951 148.278 135.151 134.66 146.269C121.042 157.386 104.212 163.833 86.6513 164.658C69.0909 165.483 51.7301 160.643 37.1296 150.851C22.5292 141.06 11.4621 126.835 5.56083 110.275C-0.340466 93.7153 -0.763563 75.6974 4.35394 58.8789C9.47145 42.0603 19.8586 27.3317 33.9834 16.8654Z"/>
+                                <path d="M144.215 28.4141L144.302 28.6321L130.417 50.6853C125.367 43.2026 118.601 36.9743 110.682 32.5658V82.7519C110.682 98.1496 98.1999 110.632 82.8023 110.632C67.4046 110.632 54.9224 98.1496 54.9224 82.7519C54.9224 67.3543 67.4046 54.872 82.8023 54.872C88.5729 54.872 93.9341 56.6253 98.3822 59.6281V2.23047C116.483 5.71201 132.466 15.1453 144.215 28.4141Z" />
+                                </svg>
+                                
+                        </span>
+                        music
+                    </a>
+                    <a class="socials" href="/utilities" target="_blank">
+                        <span class="social-logo">
+                            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentcolor">
+                                <path d="m319.635877,112.750002c-79.784849,0 -143.250002,64.371967 -143.250002,143.250002c0,79.784849 64.371967,143.250002 143.250002,143.250002c78.878363,0 143.250002,-64.371967 143.250002,-143.250002c0,-78.878035 -64.37164,-143.250002 -143.250002,-143.250002zm0,195.835523c-29.012464,0 -53.491843,-24.479379 -53.491843,-53.492334c0,-29.012464 24.479379,-53.491843 53.491843,-53.491843c29.012791,0 53.49217,24.479379 53.49217,53.491843c-0.906813,29.919277 -24.479379,53.492334 -53.49217,53.492334z"/>
+                                <path d="m174.519002,151.464652l0,209.070694l-50.904363,0l-65.447969,-209.070694l116.352332,0z"/>
+                              </svg>
+                        </span>
+                        utilities
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    <footer>
-        <span style="margin: 0 0.4em;">made with</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#EF3E36" viewBox="0 0 16 16" style="height: 1.2em; vertical-align: middle" alt="LOVE">
-        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-        </svg>
-        <span style="margin: 0 0.4em;">by</span>
-        <a href="https://kiacode.space">kiacode</a>
-        <span style="margin: 0 0.4em;">|</span>
-        <a target="_blank" href="https://github.com/KiaCode97/site">source</a>
-        <span style="margin: 0 0.4em;">|</span>
-        <a target="_blank" href="https://www.donationalerts.com/r/romanespit">buy me some food</a>
-    </footer>
+    <div class="footer">
+        &copy;&nbsp;<script>document.write(/\d{4}/.exec(Date())[0])</script>&nbsp;&#8226;&nbsp;Made by <a href="/" target="_blank">romanespit</a> with <svg xmlns="http://www.w3.org/2000/svg" fill="#EF3E36" viewBox="0 0 16 16" style="height: 1.2em; vertical-align: middle" alt="LOVE">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+            </svg><span style="margin: 0 0.4em;">|</span>
+            <a href="https://www.donationalerts.com/r/romanespit" target="_blank" >buy me some food</a>
+    </div>
 </body>
-
 </html>
