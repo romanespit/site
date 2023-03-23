@@ -6,7 +6,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Panton', sans-serif;
-  -webkit-appearance: none;
 }
 
 * {
@@ -333,7 +332,8 @@ a:hover {
   background-clip: padding-box;
   border: 1px solid #bdbdbd;
   border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;  
+  -webkit-appearance: listbox;
 }
 .form-input::placeholder {
   color: #b6b6b6;
