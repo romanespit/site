@@ -309,9 +309,7 @@ a:hover {
   border-bottom-right-radius: 0;
   border-right-width: 0;
   }
-  fieldset {
-    width:100%;
-}
+  
 .form-text {
   text-align: center;
   margin: 5px auto;
@@ -353,6 +351,18 @@ a:hover {
   border-color: #1A3D8A;
   outline: 0;
   box-shadow: 0 0 0 0.3rem #1A3D8A40;
+}
+fieldset {
+  width:100%;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  border-radius: 0.7rem;
+  background-color: #18181b;
+  border: 2.8px solid #ffffff30;
+}
+fieldset legend{
+  color: white;
+  text-align: center;
 }
 .fieldset .input {
     -webkit-appearance: none;

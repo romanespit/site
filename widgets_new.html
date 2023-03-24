@@ -75,10 +75,9 @@
             </div>
             <div class="main">
                 <fieldset>
-                    <legend>Все цвета кастомизации в формате HTML</legend>
+                    <legend>Кастомизация</legend>
+                    <fieldset style="border: 1px solid #ffffff15;">
                     <div class="text-field">
-                        <!--<input type="checkbox" id="iscolor" name="iscolor" value="iscolor">
-                        <label for="iscolor" style="margin-left: 5px">Включить цветовую кастомизацию</label>-->
                         <label class="toggler-wrapper style-1" style="margin-bottom:5px;float: right;">
                             <input type="checkbox" id="iscolor" name="iscolor" value="iscolor">
                             <div class="toggler-slider" >
@@ -88,21 +87,20 @@
                     </div>
                     <div class="text-field">
                         <div class="text-field__group">             
-                            <!--<input class="text-field__input" type="background" id="background" name="background" size="5">-->
                             <input class="text-field__input jscolor" type="background" id="background" name="background" size="6" value="ffffff">
-                            <label for="background" style="margin-left: 5px">Фон платежной формы</label>
+                            <label for="background" style="margin-left: 5px">Фон формы</label>
                         </div> 
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">             
                             <input class="text-field__input jscolor" type="controlPrimary" id="controlPrimary" name="controlPrimary" size="6" value="ffffff">
-                            <label for="controlPrimary" style="margin-left: 5px">Кнопка Заплатить и др. акцентные</label>
+                            <label for="controlPrimary" style="margin-left: 5px">Кн. Заплатить и др. акцентные</label>
                         </div> 
                     </div>
                     <div class="text-field">
                         <div class="text-field__group" style="padding-top: 5px">             
                             <input class="text-field__input jscolor" type="controlPrimaryContent" id="controlPrimaryContent" name="controlPrimaryContent" size="6" value="ffffff">
-                            <label for="controlPrimaryContent" style="margin-left: 5px">Текст кнопки Заплатить</label>
+                            <label for="controlPrimaryContent" style="margin-left: 5px">Текст кн. Заплатить</label>
                         </div> 
                     </div>
                     <div class="text-field">
@@ -124,10 +122,8 @@
                         </div> 
                     </div>
                 </fieldset>
-            </div>
-            <div class="main">
-                <fieldset>
-                    <legend>Способ оплаты:</legend>
+                <fieldset style="border:0px; margin-top:5px">
+                    <legend>Способ оплаты</legend>
                     <div>
                         <select class="form-text form-input" name="method">
                             <option value = "all" label = "Все способы"></option>
@@ -141,16 +137,34 @@
                           </svg></p>
                     </div>
                 </fieldset> 
+                </fieldset>
             </div>
+            <!--<div class="main">
+                <fieldset>
+                    <legend>Способ оплаты</legend>
+                    <div>
+                        <select class="form-text form-input" name="method">
+                            <option value = "all" label = "Все способы"></option>
+                            <option value = "card" label = "Банковская карта"></option>
+                            <option value = "sber" label = "SberPay"></option>
+                            <option value = "yoo" label = "Кошелек ЮMoney"></option>
+                            <option value = "sbp" label = "СБП"></option>
+                        </select><br>Чтобы форсировать конкретный способ, проверяйте на шопе доступность выбранного способа и параметр 
+                            <svg id="copyparam" title="Нажмите для копирования" class="titled" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"  fill="currentcolor">
+                            <path fill-rule="evenodd" d="M16,16 L16,20 C16,21.1522847 15.1522847,22 14,22 L4,22 C2.84771525,22 2,21.1522847 2,20 L2,10 C2,8.84771525 2.84771525,8 4,8 L8,8 L8,4 C8,2.84771525 8.84771525,2 10,2 L20,2 C21.1522847,2 22,2.84771525 22,4 L22,14 C22,15.1522847 21.1522847,16 20,16 L16,16 Z M14,16 L10,16 C8.84771525,16 8,15.1522847 8,14 L8,10 L4,10 L4,20 L14,20 L14,16 Z M10,4 L10,14 L20,14 L20,4 L10,4 Z"/>
+                          </svg></p>
+                    </div>
+                </fieldset> 
+            </div>-->
             <div class="main">
                 <button class="text-field__btn" type="button" id="render" name="render" style="margin: 0 auto;">Render</button>
                 <button class="text-field__btn" type="button" id="dwnld" name="html" style="margin-top:5px;margin: 0 auto;">HTML</button>
                 <button class="text-field__btn" type="button" id="logs" name="logs" style="margin-top:5px;margin: 0 auto;">Logs</button>                
             </div>
             <div class="main ">
-                    <fieldset>
-                        <h1 style="color: white; text-align: center;">Виджет</h1>
-                        <div id="render-form" class="widget-container"></div>
+                    <fieldset style="border:0px">
+                        <!--<legend class="fsbold">Виджет</legend>-->
+                        <div id="render-form"></div>
                     </fieldset>
                     <div id="render-form"></div>
             </div>
