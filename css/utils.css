@@ -187,12 +187,13 @@ a:hover {
   position: absolute;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
-  color: #1A3D8A;
+  color: #838383;
   opacity: 0.7;
-  font-weight: bold;
 }
 .toggler-wrapper.style-1 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
   left: calc(100% - 19px - 3px);
+  color: #1A3D8A;
+  font-weight: bold;
 }
 
 .toggler-wrapper.style-1 .toggler-knob {
