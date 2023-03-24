@@ -282,7 +282,7 @@ a:hover {
           color: #212529;
           background-color: #fff;
           background-clip: padding-box;
-          border: 1px solid #bdbdbd;          
+          border: 1px solid #ffffff30;          
           color: #b6b6b6;
           background-color: #18181b;
           border-radius: 0.25rem;
@@ -329,7 +329,7 @@ a:hover {
   color: #b6b6b6;
   background-color: #18181b;
   background-clip: padding-box;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #ffffff30;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
