@@ -61,16 +61,16 @@
             </div>            
         </div> 
         <div class="main">
-            <form style="margin:10px auto" action="https://yoomoney.ru/eshop.xml" method="post" class="form-text">
+            <form action="https://yoomoney.ru/eshop.xml" method="post" class="form-text">
                 <label class="form-text" for="shopId">shopId</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
-                <input class="form-text form-input" name="shopId" value="965945" type="text"/>
+                <input class="form-text form-input" name="shopId" value="965945" type="text" maxlength="6" inputmode="numeric" pattern="[0-9]{4,6}"/>
                 <label class="form-text" for="scid">scid</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
-                <input class="form-text form-input" name="scid" value="2416128" type="text"/>
-                <label class="form-text" for="sum">sum (Сумма платежа)</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br><input class="form-text form-input" name="sum" value="10.50" type="text"/><br>
+                <input class="form-text form-input" name="scid" value="2416128" type="text" maxlength="7" inputmode="numeric" pattern="[0-9]{4,7}"/>
+                <label class="form-text" for="sum">sum (Сумма платежа)</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
+                <input class="form-text form-input" name="sum" value="10.50" type="text" maxlength="9" inputmode="decimal" pattern="[0-9,.]{1,9}"/><br>
                 <label class="form-text" for="customerNumber">customerNumber (идентификатор плательщика)</label><br>
-                <input class="form-text form-input" name="customerNumber" placeholder="123456, Ivanov" type="text"/><br>
+                <input class="form-text form-input" name="customerNumber" maxlength="128" placeholder="123456, Ivanov" type="text"/><br>
                 <label class="form-text" for="paymentType">paymentType (способ оплаты) </label><a target="_blank" href="https://yookassa.ru/docs/payment-solution/payments/supplementary/reference/payment-types#overview">doc</a><br>
-                <!--<input class="form-text form-input" name="paymentType" list="paytype" type="text"/>-->
                 <select class="form-text form-input" name="paymentType">
                     <option value = "" label = "Все способы"></option>
                     <option value = "PC" label = "PC - Кошелек ЮMoney"></option>
@@ -85,7 +85,25 @@
                     <option value = "2S" label = "2S - Сбербанк Бизнес Онлайн (B2B-платежи)"></option>
                 </select><br>
                 <label class="form-text"for="orderNumber">orderNumber (номер заказа)</label><br>
-                <input class="form-text form-input" name="orderNumber" placeholder="111-222 ABC" type="text"/><br>
+                <input class="form-text form-input" name="orderNumber" maxlength="64" placeholder="111-222 ABC" type="text"/><br>
+                <textarea class="form-text form-input" name="ym_merchant_receipt" type="text" style="text-align: left; height:10rem;font-size: x-small;">{
+                    "customer": {
+                        "email": "test@mail.ru"
+                    },
+                    "taxSystem": 1,
+                    "items": [
+                        {
+                            "quantity": 1,
+                            "price": {
+                                "amount": 10.5
+                            },
+                            "tax": 1,
+                            "text": "Микрокусочек пиццы",
+                            "paymentMethodType": "full_payment ",
+                            "paymentSubjectType": "commodity"
+                        }
+                    ]
+                }</textarea><br>
                 <!--<label class="form-text"for="cps_email">cps_email (Почта)</label><br>
                 <input class="form-text form-input" type="text" name="cps_email" placeholder="me@kiacode.space" /><br>
                 <label class="form-text"for="cps_phone">cps_phone (Телефон)</label><br>
