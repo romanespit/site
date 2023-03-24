@@ -304,21 +304,21 @@ a:hover {
       box-shadow: 0 0 0 0.2rem #ff000040;
     }
     details summary {
-      display: block;  /* у summary по умолчанию свойство display в значении list-item, потому поддерживается свойство list-style */
+      display: flex;
       width: 10em;
       width: -webkit-fit-content;
       width: -moz-fit-content;
-      width: fit-content;  /* блок раскрывается при щелчке по кнопке, а не по всей строке */
-      outline-style: none;  /* удалить обводку при фокусе */
+      width: fit-content;
+      outline-style: none;
       cursor: pointer;
       color: #868686;
       transition: 0.2s;
       text-align: center;
     }
     details summary:hover {
-      color: #ffffff;
+      color: #1A3D8A;
     }
-    details summary::-webkit-details-marker {  /* нестандартный псевдоэлемент Google Chrome */
+    details summary::-webkit-details-marker {
       display: none;
     }
     details[open] div {
@@ -433,4 +433,51 @@ fieldset legend{
 }
 .fieldset .button:hover {
     color: #999;
+}
+table.cardInfo {
+  border: 1.5px solid #ffffff10;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+}
+table.cardInfo td, table.cardInfo th {
+  padding: 7px 0px;
+}
+table.cardInfo tbody td {
+  font-size: 13px;
+}
+table.cardInfo thead {
+  background: #18181b;
+  border-radius: 100px;
+}
+table.cardInfo thead th {
+  font-size: 13px;
+  text-align: center;
+  color: #FFFFFF;
+}
+table.cardInfo tbody tr:nth-child(even) {
+  background: #18181b;
+}
+table.cardInfo tbody tr {
+  background: #30303640;
+}
+table.cardInfo tfoot {
+  font-size: 14px;
+  font-weight: bold;
+}
+table.cardInfo tfoot td {
+  font-size: 14px;
+  background: #18181b;
+  border-bottom-left-radius: 10px;
+}
+table.cardInfo tfoot .links {
+  text-align: right;
+  padding-right: .5rem;
+}
+table.cardInfo tfoot .links a{
+  display: inline-block;
+  background: #303036;
+  color: #b6b6b6;
+  padding: 2px 8px;
+  border-radius: 5px;
 }

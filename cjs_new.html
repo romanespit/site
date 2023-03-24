@@ -69,7 +69,52 @@
                     <div class="text-field__group" style="padding-top: 5px">             
                         <input class="text-field__input" type="password" pattern="[0-9]{3}" inputmode="numeric" maxlength="3" id="cvv" name="cvv" placeholder="CVV/CVC" style="width:4rem;height: calc(1.5rem + 2px);">
                     </div> 
-                </div>              
+                </div>
+                <details>
+                    <summary style="margin: 0 auto;">Посмотреть тестовые карты</summary>
+                        <div style="width:100%;margin: 0 auto; ">
+                            <table class="cardInfo">
+                                <thead>
+                                    <tr>
+                                        <th>Система</th>
+                                        <th>3Ds</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="links"><a target="_blank" href="https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card-cancellation-details">Ошибочные сценарии</a></div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr onclick="setCard(5555555555554477)" style="cursor: pointer;">
+                                        <td>Mastercard</td><td>✔️</td></tr>
+                                    <tr onclick="setCard(5555555555554444)" style="cursor: pointer;">
+                                        <td>Mastercard</td><td>❌</td></tr>
+                                    <tr onclick="setCard(6759649826438453)" style="cursor: pointer;">
+                                        <td>Maestro</td><td>❌</td></tr>
+                                    <tr onclick="setCard(4793128161644804)" style="cursor: pointer;">
+                                        <td>Visa</td><td>✔️</td></tr>
+                                    <tr onclick="setCard(4111111111111111)" style="cursor: pointer;">
+                                        <td>Visa</td><td>❌</td></tr>
+                                    <tr onclick="setCard(4175001000000017)" style="cursor: pointer;">
+                                        <td>Visa Electron</td><td>❌</td></tr>
+                                    <tr onclick="setCard(2200000000000004)" style="cursor: pointer;">
+                                        <td>МИР</td><td>✔️</td></tr>
+                                    <tr onclick="setCard(2202474301322987)" style="cursor: pointer;">
+                                        <td>МИР</td><td>❌</td></tr>
+                                    <tr onclick="setCard(370000000000002)" style="cursor: pointer;">
+                                        <td>American Express</td><td>❌</td></tr>
+                                    <tr onclick="setCard(3528000700000000)" style="cursor: pointer;">
+                                        <td>JCB</td><td>❌</td></tr>
+                                    <tr onclick="setCard(36700102000000)" style="cursor: pointer;">
+                                        <td>Diners Club</td><td>❌</td></tr>
+                                </tbody>
+                                </tr>
+                            </table>
+                        </div>
+                  </details>            
             </fieldset>
         </div>
         <div class="main">
