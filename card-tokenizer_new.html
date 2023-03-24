@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <meta name="yandex-tableau-widget" href="/manifest.json" />
     <link rel="icon" href="img/kassa.png">
+    <script src="https://yookassa.ru/payouts-data/3.0.0/widget.js"></script>
 </head>
 
 <body>
@@ -47,8 +48,35 @@
             </div>            
         </div> 
         <div class="main">
-            Under construction... 🔨
-        </div>     
+            <fieldset>
+                <legend>agentID</legend>
+                <div class="text-field">
+                    <div class="text-field__group">
+                        <input class="text-field__input" placeholder="503027"type="agentid" id="agentid" name="agentid" style="width:100%;height: calc(1.5rem + 2px);" >
+                    </div>
+                </div>               
+            </fieldset>
+        </div>
+        <div class="main">
+            <fieldset style="background-color:#2B2B2E; border: 0px;">
+                <!--<legend>Синоним карты/Ошибка</legend>-->
+                <div class="text-field__group">
+                    <textarea class="text-field__input tokenarea" style="height:5.5rem;" id="tokenarea" readonly placeholder="Синоним или ошибка появятся после токенизации"></textarea>
+                    <svg id="copytoken" title="Нажмите для копирования" class="titled" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"  fill="currentcolor">
+                        <path fill-rule="evenodd" d="M16,16 L16,20 C16,21.1522847 15.1522847,22 14,22 L4,22 C2.84771525,22 2,21.1522847 2,20 L2,10 C2,8.84771525 2.84771525,8 4,8 L8,8 L8,4 C8,2.84771525 8.84771525,2 10,2 L20,2 C21.1522847,2 22,2.84771525 22,4 L22,14 C22,15.1522847 21.1522847,16 20,16 L16,16 Z M14,16 L10,16 C8.84771525,16 8,15.1522847 8,14 L8,10 L4,10 L4,20 L14,20 L14,16 Z M10,4 L10,14 L20,14 L20,4 L10,4 Z"/>
+                    </svg>
+                </div>
+            </fieldset>
+        </div>
+        <div class="main">
+            <button class="text-field__btn" type="button" id="rndr" name="rndr" style="margin: 0 auto;">Render</button>
+            </div>
+        <div class="main ">
+            <fieldset style="border:0px">
+                <div id="render-form"></div>
+            </fieldset>
+            <div id="render-form"></div>
+    </div>    
     </div>
     <div class="footer">
         &copy;&nbsp;<script>document.write(/\d{4}/.exec(Date())[0])</script>&nbsp;&#8226;&nbsp;Made by <a href="/" target="_blank">romanespit</a> with <svg xmlns="http://www.w3.org/2000/svg" fill="#EF3E36" viewBox="0 0 16 16" style="height: 1.2em; vertical-align: middle" alt="LOVE">
@@ -56,5 +84,14 @@
             </svg><span style="margin: 0 0.4em;">|</span>
             <a href="https://www.donationalerts.com/r/romanespit" target="_blank" >buy me some food</a>
     </div>
+    <script>
+        document.querySelector("#copytoken").onclick = function() {
+            navigator.clipboard.writeText("test copy").then(() => {
+            console.log('Content copied to clipboard');
+            },() => {
+            console.error('Failed to copy');
+            });
+        }
+    </script>
 </body>
 </html>
