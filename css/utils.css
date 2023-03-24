@@ -316,7 +316,7 @@ a:hover {
       text-align: center;
     }
     details summary:hover {
-      color: #1A3D8A;
+      color: #ffffff;
     }
     details summary::-webkit-details-marker {
       display: none;
@@ -460,6 +460,10 @@ table.cardInfo tbody tr:nth-child(even) {
 }
 table.cardInfo tbody tr {
   background: #30303640;
+  transition: 0.2s;
+}
+table.cardInfo tbody tr:hover {
+  color: #ffffff;
 }
 table.cardInfo tfoot {
   font-size: 14px;
@@ -477,7 +481,11 @@ table.cardInfo tfoot .links {
 table.cardInfo tfoot .links a{
   display: inline-block;
   background: #303036;
-  color: #b6b6b6;
+  color: inherit;
   padding: 2px 8px;
   border-radius: 5px;
+  transition: 0.2s;
+}
+table.cardInfo tfoot .links a:hover {
+  color: #ffffff;
 }
