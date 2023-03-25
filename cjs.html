@@ -197,6 +197,7 @@
             if(shop >= 1000 && shop <= 999999)
             {
                 history.pushState(null, null, '/cjs?shopid='+shop);
+                document.getElementById("tokenize").textContent = "Wait...";
                 try {
                     const checkout = YooMoneyCheckout(shop);
                     checkout.tokenize({
@@ -229,6 +230,7 @@
                 } catch(error) {
                     console.log(error);
                 }                
+                document.getElementById("tokenize").textContent = "Tokenize";              
             }
             else alert('Неверный shopID');
         } 
