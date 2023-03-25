@@ -103,7 +103,15 @@
     <script>
         rendered = false;
         texttocopy = "";
-        document.querySelector("#rndr").onclick = function(){
+        const params = new URLSearchParams(window.location.search)
+        urlagent = params.get('agentid');
+        urlrender = params.get('render');
+        if(urlagent >= 100000 && urlagent <= 999999) { document.getElementById("agentid").value = urlagent } else { history.pushState(null, null, '/card-tokenizer?agentid='+'null'+'&render='+urlrender); }
+        if(urlrender == "true" && document.getElementById("agentid").value >= 100000 && document.getElementById("agentid").value <= 999999) { Render(); }
+
+        function Render() {
+            if(document.getElementById("agentid").value >= 100000 && document.getElementById("agentid").value <= 999999) { agent = document.getElementById("agentid").value } else {agent="null"}
+            history.pushState(null, null, '/card-tokenizer?agentid='+agent+'&render=true');
             if(rendered)
             {
                 window.location.reload();
@@ -111,7 +119,7 @@
             agentid = document.getElementById("agentid").value;
             if(agentid < 100000 || agentid > 999999)
             {
-                alert('Введите agentID');
+                alert('Неверный agentID');
             }
             else
             {   
@@ -146,6 +154,9 @@
                 });;
                 rendered = true;
             }
+        }
+        document.querySelector("#rndr").onclick = function(){
+            Render();
         }
         document.querySelector("#copytoken").onclick = function() {
             if(!texttocopy) return alert('Нечего копировать');
