@@ -159,6 +159,9 @@
     </div>
     <script>
         texttocopy = "";
+        const params = new URLSearchParams(window.location.search)
+        urlshop = params.get('shopid');
+        if(urlshop >= 1000 && urlshop <= 999999) { document.getElementById('shopid').value = urlshop; }
         document.querySelector("#copytoken").onclick = function() {
             if(!texttocopy) return alert('Нечего копировать');
             else {
@@ -193,6 +196,7 @@
             shop = document.getElementById("shopid").value;      
             if(shop >= 1000 && shop <= 999999)
             {
+                history.pushState(null, null, '/cjs?shopid='+shop);
                 try {
                     const checkout = YooMoneyCheckout(shop);
                     checkout.tokenize({
