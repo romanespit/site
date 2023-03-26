@@ -132,7 +132,7 @@
                 </fieldset>
                 <fieldset style="border:0px; margin-top:5px">
                     <div>
-                        <select class="form-text form-input" name="method">
+                        <select class="form-text form-input" name="method" id="method">
                             <option value = "all" label = "Все способы оплаты">Все способы оплаты</option>
                             <option value = "card" label = "Банковская карта">Банковская карта</option>
                             <option value = "sber" label = "SberPay">SberPay</option>
@@ -173,6 +173,241 @@
             console.error('Failed to copy');
             });
         }
+        backgroundSet = false;
+        controlPrimarySet = false;
+        controlPrimaryContentSet = false;
+        controlSecondarySet = false;
+        borderSet = false;
+        textSet = false;
+        usedcolors = false;        
+        document.querySelector("#background").onclick = function() { backgroundSet = true; }
+        document.querySelector("#controlPrimary").onclick = function() { controlPrimarySet = true }
+        document.querySelector("#controlPrimaryContent").onclick = function() { controlPrimaryContentSet = true }
+        document.querySelector("#controlSecondary").onclick = function() { controlSecondarySet = true }
+        document.querySelector("#border").onclick = function() { borderSet = true }
+        document.querySelector("#text").onclick = function() { textSet = true }
+        rendered = false;
+        token = '';	
+        cust_colors = {  // default
+            background: '#2B2B2E',
+            border: '#b6b6b6',
+            control_secondary: '#484848',
+            text: '#b6b6b6',
+            control_primary: '#1A3D8A',
+            control_primary_content: '#FFFFFF'
+        };
+        render_request = {
+            confirmation_token: token, 
+            return_url: 'http://kiacode.space/return_url',
+            customization: {
+                colors: cust_colors
+            },
+            error_callback: function(error) {
+                console.log(error)
+            }
+        };
+        
+        function download(text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', 'WidgetYookassa.html');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }        
+        document.querySelector("#dwnld").onclick = function() {
+            //if(token.substring(0,2) == "ct" && document.getElementById("wdg_code").value != "Скачать страницу можно будет после отрисовки") download(generateHTML());
+            if(token.substring(0,2) == "ct" && rendered) download(generateHTML());
+            else alert('Введите confirmation token и отрисуйте виджет');            
+        }
+        document.querySelector("#logs").onclick = function() {
+            token = document.getElementById("conftoken").value; 
+            if(token.substring(0,2) == "ct")
+            { 
+                window.open("https://kibana.yooteam.ru/app/kibana#/discover?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(columns:!(Payload,message.message),filters:!(),index:'frontend-checkout-client-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%20%22"+token+"%22%20%22ДопТрейс%22%20)'),sort:!())");
+            }
+            else alert('Введите confirmation token!');
+        }
+        function generateHTML() {
+        if(document.getElementById("iscolor").checked) { usedcolors = true; } else { usedcolors = false; }
+            code = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">';
+            code += '\n<html>';
+            code += '\n\t<head>';
+            code += '\n\t<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+            code += '\n\t<title>❤ romanespit</title>';
+            code += '\n\t<!--Подключение библиотеки для инициализации виджета ЮKassa-->';
+            code += '\n\t<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js">';
+            code += '</scr';
+            code += 'ipt>'
+            code += '\n\t</head>';
+            code += '\n\t<body>';
+            code += '\n\t\t<p>Ниже отобразится платежная форма. Если вы еще не создавали платеж и не передавали токен для инициализации виджета, появится сообщение об ошибке.</p>';
+            code += '\n\t\t<!--Контейнер, в котором будет отображаться платежная форма-->';
+            code += '\n\t\t<div id="payment-form"></div>';
+            code += '\n\t\t<p>Данные банковской карты для оплаты в <b>тестовом магазине</b>:</p>';
+            code += '\n\t\t<ul>';
+            code += '\n\t\t\t<li>номер — <b>5555 5555 5555 4477</b></li>';
+            code += '\n\t\t\t<li>срок действия — <b>01/30</b> (или другая дата, больше текущей)</li>';
+            code += '\n\t\t\t<li>CVC — <b>123</b> (или три любые цифры)</li>';
+            code += '\n\t\t\t<li>код для прохождения 3-D Secure — <b>123</b> (или три любые цифры)</li>';
+            code += '\n\t\t</ul>';
+            code += '\n\t\t<p><a href=https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card>Другие тестовые банковские карты</a></p>';
+            code += '\n\t\t<script>';
+            code += '\n\t\t//Инициализация виджета. Все параметры обязательные.';
+            code += '\n\t\tconst checkout = new window.YooMoneyCheckoutWidget({';
+            code += '\n\t\t\tconfirmation_token: \''+token;
+            code += '\',\n\t\t\treturn_url: \'https://example.com/\',';
+            code += '\n\t\t\tcustomization: {';
+            if(document.getElementById("ismodal").checked)
+            {
+                code += '\n\t\t\t\tmodal: true,';
+            } 
+            if(usedcolors)
+            {
+                code += '\n\t\t\t\tcolors: {';
+                hasPrev = false;
+                if(backgroundSet) background = "#"+String(document.getElementById("background").value);
+                if(controlPrimarySet) controlPrimary = "#"+String(document.getElementById("controlPrimary").value);
+                if(controlPrimaryContentSet) controlPrimaryContent = "#"+String(document.getElementById("controlPrimaryContent").value);
+                if(controlSecondarySet) controlSecondary = "#"+String(document.getElementById("controlSecondary").value);
+                if(borderSet) border = "#"+String(document.getElementById("border").value);
+                if(textSet) text = "#"+String(document.getElementById("text").value);
+
+                if(background.length > 1) { code += '\n\t\t\t\t\tbackground: \''+background; hasPrev=true; }
+                if(controlPrimary.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolPrimary: \''+controlPrimary; hasPrev=true; }
+                if(controlPrimaryContent.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolPrimaryContent: \''+controlPrimaryContent; hasPrev=true; }
+                if(controlSecondary.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tcontrolSecondary: \''+controlSecondary; hasPrev=true; }
+                if(border.length > 1) { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\tborder: \''+border; hasPrev=true; }
+                if(text.length > 1)  { if(hasPrev) {code+='\','} code += '\n\t\t\t\t\ttext: \''+text; hasPrev=true; }
+                if(hasPrev) {code+='\''}
+                code += '\n\t\t\t\t}';
+            }
+            if(document.getElementById("method").value == "card") code += ',\n\t\t\t\tpayment_methods: [\'bank_card\']';
+            else if(document.getElementById("method").value == "sber") code += ',\n\t\t\t\tpayment_methods: [\'sberbank\']';
+            else if(document.getElementById("method").value == "yoo") code += ',\n\t\t\t\tpayment_methods: [\'yoo_money\']';
+            else if(document.getElementById("method").value == "sbp") code += ',\n\t\t\t\tpayment_methods: [\'sbp\']';
+            code += '\n\t\t\t},';
+            code += '\n\t\t\terror_callback: function(error) {';
+            code += '\n\t\t\t\tconsole.log(error)';
+            code += '\n\t\t\t}';
+            code += '\n\t\t});';
+            code += '\n\t\t//Отображение платежной формы в контейнере';
+            code += '\n\t\tcheckout.render(\'payment-form\');';
+            code += '\n\t</scr';
+            code += 'ipt>';
+            code += '\n</body>';
+            code += '\n</html>';
+            return String(code);
+        }
+        document.querySelector("#render").onclick = function(){
+        if(document.getElementById("iscolor").checked) { usedcolors = true; } else { usedcolors = false; }
+            token = document.getElementById("conftoken").value;            
+            if(token.substring(0,2) == "ct")
+            {   
+                if(rendered)
+                {
+                    wdget.destroy();
+                    rendered = false;
+                    cust_colors = {  // default
+                        background: '#2B2B2E',
+                        border: '#b6b6b6',
+                        control_secondary: '#484848',
+                        text: '#b6b6b6',
+                        control_primary: '#1A3D8A',
+                        control_primary_content: '#FFFFFF'
+                    };
+                }
+                if(usedcolors)
+                {
+                    if(backgroundSet) cust_colors.background = "#"+String(document.getElementById("background").value);
+                    if(controlPrimarySet) cust_colors.controlPrimary = "#"+String(document.getElementById("controlPrimary").value);
+                    if(controlPrimaryContentSet) cust_colors.controlPrimaryContent = "#"+String(document.getElementById("controlPrimaryContent").value);
+                    if(controlSecondarySet) cust_colors.controlSecondary = "#"+String(document.getElementById("controlSecondary").value);
+                    if(borderSet) cust_colors.border = "#"+String(document.getElementById("border").value);
+                    if(textSet) cust_colors.text = "#"+String(document.getElementById("text").value);
+                }
+                if(document.getElementById("method").value == "card")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['bank_card']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }
+                }
+                else if(document.getElementById("method").value == "sber")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['sberbank']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }
+                }
+                else if(document.getElementById("method").value == "yoo")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['yoo_money']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }                    
+                }
+                else if(document.getElementById("method").value == "sbp")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['sbp']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }                    
+                }
+                else
+                {                    
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }
+                }
+                if(document.getElementById("ismodal").checked)
+                {
+                    render_request.customization.modal = true;
+                }           
+                wdget = new window.YooMoneyCheckoutWidget(render_request);
+                wdget.render('render-form');
+                rendered = true;
+            }
+            else {
+                alert('Введите confirmation token');
+            }
+        } 
     </script>
 </body>
 </html>
