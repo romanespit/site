@@ -273,7 +273,7 @@
             token = document.getElementById("conftoken").value; 
             if(token.substring(0,2) == "ct")
             { 
-                window.open("https://kibana.yooteam.ru/app/kibana#/discover?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(columns:!(Payload,message.message),filters:!(),index:'frontend-checkout-client-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%20%22"+token+"%22%20%22ДопТрейс%22%20)'),sort:!())");
+                window.open("https://kibana.yooteam.ru/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(columns:!(message.traceid,message.message),filters:!(),index:'frontend-checkout-client-main-*',interval:auto,query:(language:lucene,query:'(%20%22"+token+"%22%20%22ДопТрейс%22%20)'),sort:!())");
             }
             else alert('Введите confirmation token!');
         }
