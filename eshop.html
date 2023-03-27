@@ -64,12 +64,12 @@
         </div> 
         <div class="main">
             <form action="https://yoomoney.ru/eshop.xml" method="post" class="form-text">
-                <label class="form-text" for="shopId">shopId</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
-                <input class="form-text form-input" name="shopId" value="965945" type="text" maxlength="6" inputmode="numeric" pattern="[0-9]{4,6}"/>
+                <label class="form-text" for="shopId">shopId</label><label style="color: #FF0000; cursor: help" title="Обязательное поле" > *</label><br>
+                <input class="form-text form-input" name="shopId" value="965945" placeholder="965945" type="text" maxlength="6" inputmode="numeric" pattern="[0-9]{4,6}" required/>
                 <label class="form-text" for="scid">scid</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
-                <input class="form-text form-input" name="scid" value="2416128" type="text" maxlength="7" inputmode="numeric" pattern="[0-9]{4,7}"/>
+                <input class="form-text form-input" name="scid" value="2416128" placeholder="2416128" type="text" maxlength="7" inputmode="numeric" pattern="[0-9]{4,7}" required/>
                 <label class="form-text" for="sum">sum (Сумма платежа)</label><label style="color: #FF0000; cursor: help" title="Обязательное поле"> *</label><br>
-                <input class="form-text form-input" name="sum" value="10.50" type="text" maxlength="9" inputmode="decimal" pattern="[0-9,.]{1,9}"/><br>
+                <input class="form-text form-input" name="sum" value="10.50" type="text" maxlength="9" inputmode="decimal" pattern="[0-9,.]{1,9}" required/><br>
                 <label class="form-text" for="customerNumber">customerNumber (идентификатор плательщика)</label><br>
                 <input class="form-text form-input" name="customerNumber" maxlength="128" placeholder="123456, Ivanov" type="text"/><br>
                 <label class="form-text" for="paymentType">paymentType (способ оплаты) </label><br>
@@ -88,6 +88,7 @@
                 </select><br>
                 <label class="form-text"for="orderNumber">orderNumber (номер заказа)</label><br>
                 <input class="form-text form-input" name="orderNumber" maxlength="64" placeholder="111-222 ABC" type="text"/><br>
+                <label class="form-text"for="ym_merchant_receipt">Данные чека</label><label style="color: #ffee00; cursor: help" title="Обязательное поле, если в магазине включена фискализация" > *</label><br>
                 <textarea class="form-text form-input" name="ym_merchant_receipt" type="text" style="text-align: left; height:10rem;font-size: x-small;">{
                     "customer": {
                         "email": "test@mail.ru"
