@@ -97,8 +97,8 @@
                         
                     </div>
                 </div>
-                <details id="spoiler" style="margin-top: 0.5rem" title="Работает только из корпоративной сети">
-                    <summary style="margin: 0 auto;">Сгенерировать токен</summary>
+                <details id="spoiler" style="margin-top: 0.5rem">
+                    <summary style="margin: 0 auto;"  title="Работает только из корпоративной сети">Сгенерировать токен</summary>
                     <div class="text-field"style="margin-top: 0.5rem">
                         <div class="text-field__group">
                             <input class="text-field__input" type="auth" id="auth" name="auth" style="width:100%;height: calc(1.5rem + 2px);" placeholder="shopid:secret_key" value="903011:test_qBtsPv4zfTZGSaaW7rP7Zofq2EwyhsOmua_VXdce5Q8">
@@ -195,7 +195,8 @@
             <div class="main">
                 <button class="text-field__btn" type="button" id="render" name="render" style="margin: 0 auto;">Render</button>
                 <button class="text-field__btn" type="button" id="dwnld" name="html" style="margin-top:5px;margin: 0 auto;">HTML</button>
-                <button class="text-field__btn" type="button" id="logs" name="logs" style="margin-top:5px;margin: 0 auto;">Logs</button>                
+                <button class="text-field__btn" type="button" id="logs" name="logs" style="margin-top:5px;margin: 0 auto;">Logs</button>
+                <button class="text-field__btn" type="button" id="testcards" name="testcards" style="margin-top:5px;margin: 0 auto;">Test cards</button>                   
             </div>
             <div class="main ">
                     <fieldset style="border:0px">
@@ -275,6 +276,9 @@
                 window.open("https://kibana.yooteam.ru/app/kibana#/discover?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(columns:!(Payload,message.message),filters:!(),index:'frontend-checkout-client-main-*',interval:auto,query:(language:lucene,query:'Payload:%20(%20%22"+token+"%22%20%22ДопТрейс%22%20)'),sort:!())");
             }
             else alert('Введите confirmation token!');
+        }
+        document.querySelector("#testcards").onclick = function() {
+            window.open("https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card-success");
         }
         function generateHTML() {
         if(document.getElementById("iscolor").checked) { usedcolors = true; } else { usedcolors = false; }
