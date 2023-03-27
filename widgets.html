@@ -181,6 +181,8 @@
                         <select class="form-text form-input" name="method" id="method">
                             <option value = "all" label = "Все способы оплаты">Все способы оплаты</option>
                             <option value = "card" label = "Банковская карта">Банковская карта</option>
+                            <option value = "mircard" label = "Банковская карта + MirPay">Банковская карта + MirPay</option>
+                            <option value = "mirpay" label = "MirPay">MirPay</option>
                             <option value = "sber" label = "SberPay">SberPay</option>
                             <option value = "yoo" label = "Кошелек ЮMoney">Кошелек ЮMoney</option>
                             <option value = "sbp" label = "СБП">СБП</option>
@@ -335,6 +337,8 @@
                 code += '\n\t\t\t\t}';
             }
             if(document.getElementById("method").value == "card") code += ',\n\t\t\t\tpayment_methods: [\'bank_card\']';
+            else if(document.getElementById("method").value == "mircard") code += ',\n\t\t\t\tpayment_methods: [\'bank_card\',\'mir_pay\']';
+            else if(document.getElementById("method").value == "mirpay") code += ',\n\t\t\t\tpayment_methods: [\'mir_pay\']';
             else if(document.getElementById("method").value == "sber") code += ',\n\t\t\t\tpayment_methods: [\'sberbank\']';
             else if(document.getElementById("method").value == "yoo") code += ',\n\t\t\t\tpayment_methods: [\'yoo_money\']';
             else if(document.getElementById("method").value == "sbp") code += ',\n\t\t\t\tpayment_methods: [\'sbp\']';
@@ -386,6 +390,34 @@
                         customization: {
                             colors: cust_colors,
                             payment_methods: ['bank_card']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }
+                }
+                else if(document.getElementById("method").value == "mircard")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['bank_card','mir_pay']
+                        },
+                        error_callback: function(error) {
+                            console.log(error)
+                        }
+                    }
+                }
+                else if(document.getElementById("method").value == "mirpay")
+                {
+                    render_request = {
+                        confirmation_token: token, 
+                        return_url: 'http://kiacode.space/return_url',
+                        customization: {
+                            colors: cust_colors,
+                            payment_methods: ['mir_pay']
                         },
                         error_callback: function(error) {
                             console.log(error)
