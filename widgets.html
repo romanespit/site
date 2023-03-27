@@ -215,7 +215,19 @@
             <a href="https://www.donationalerts.com/r/romanespit" target="_blank" >buy me some food</a>
     </div>
     <script>
-
+        console.log(navigator.appVersion);
+        if (navigator.appVersion.indexOf('Android')==-1)
+        {
+            console.log("done");
+            var op = document.getElementById("method").getElementsByTagName("option");
+            for (var i = 0; i < op.length; i++) {
+            // lowercase comparison for case-insensitivity
+            if(op[i].value.toLowerCase() == "mirpay" || op[i].value.toLowerCase() == "mircard") 
+                {op[i].disabled = true;
+                op[i].textContent = "Для MirPay требуется устройство Android";
+                op[i].label =  "Для MirPay требуется устройство Android";}
+            }
+        }
         document.querySelector("#copyparam").onclick = function() {
             navigator.clipboard.writeText("<parameter key=\"shopSettings.clientSettings.widget.allowRenderSelectedPaymentOptions\" value=\"true\"/>").then(() => {
             console.log('Content copied to clipboard');
