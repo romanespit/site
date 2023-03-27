@@ -17,6 +17,7 @@ function getToken() {
         fillCheckoutUiJsonField(tokenFromParameters);
     } else {
         let authElement = document.getElementById("auth");
+        const auth = btoa(authElement.value);
         const url = [
             "https://testcms.yooteam.ru/devshop/payment.php?",
             "sum=" + sum,
@@ -34,6 +35,7 @@ function getToken() {
 
             })
             .catch(console.error)
+        document.getElementById("spoiler").removeAttribute("open");
     }
 }
 
