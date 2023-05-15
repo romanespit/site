@@ -145,3 +145,22 @@ a:hover {
     justify-content: space-between;
   }
 }
+
+.playlist-logo {
+  position: relative;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 10px;
+  transform: perspective(1000px) rotateY(29deg);
+}
+.playlist-logo img {
+  display: block;
+  width: 100%;
+  box-shadow: -12px 11px 1px #a5a5a5;
+  opacity: .45;
+  transition: .5s ease-in-out;
+}
+.playlist-logo:hover img {
+  opacity: 0.95;
+  transform: scale(1.1);
+}
