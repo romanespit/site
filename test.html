@@ -20,18 +20,17 @@
     <link rel="canonical" href="https://kiacode.space/">
 </head>
 <body>
-    <input id="url" placeholder="URL">
-    <button id="jsonlick" onclick="redirect()">JS Onclick</button><br><br>
-    <a id="hrefka" href="bank100000000004://qr.nspk.ru/BD10000HMQC813DJ8BVBTVJ9OMF262QG?type=02&bank=100000000022&sum=200&cur=RUB&crc=EC1F">Deafult href</a>
+    <input id="url" placeholder="URL"><br>
+    <button id="jsonlick" onclick="redirect()">JS Onclick</button><br>
+    <a id="hrefka" target="_blank" href="/test">Deafult href</a><br><br>
     <button id="updatehref" onclick="updhref()">Update href</button>
     <script>
         function redirect() {            
             refurl = document.getElementById("url").value;
-            console.log(refurl);
             window.open(refurl);
         }
         function updhref() {
-            console.log(document.getElementById("url").value);
+            console.log("Redirect URL set to "+document.getElementById("url").value);
             document.getElementById("hrefka").href = document.getElementById("url").value;
         }
     </script>
