@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .formWrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .headerComponent {
+        margin: 1% auto;
+      }
+
+      .formatLogsWrapper {
+        margin: 1% auto;
+      }
+      .datetimeWrapper {
+        margin: 1% 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #labelExperssion {
+        margin: 1% auto;
+      }
+
+      #expressionInput {
+        margin: 1% 0;
+      }
+    </style>
+
+    <div class="formWrapper">
+      <label for="component" class="headerComponent">Компонент:</label>
+      <select name="component" id="component">
+        <option value="payment-api-v3">payment-api-v3</option>
+        <option value="shop">shop</option>
+        <option value="kassa">kassa</option>
+        <option value="deposit">deposit</option>
+      </select>
+
+      <!-- <input type="text" placeholder="component"/> -->
+      <div class="datetimeWrapper">
+        <div class="dateWrapper">
+          <label for="logsDate">Дата:</label>
+          <input type="date" id="logsDate" />
+        </div>
+        <div class="timeWrapper">
+          <label for="logsDate">Час:</label>
+          <input type="phone" id="logsTime" maxlength="2" />
+        </div>
+      </div>
+
+      <div class="formatLogsWrapper">
+        <label for="formatStyle">Применить форматирование логов?</label>
+        <input
+          type="checkbox"
+          value="formatted"
+          id="formatStyle"
+          checked="true"
+        />
+      </div>
+      <label for="expressionInput" id="labelExperssion"
+        >Поисковое значение:</label
+      >
+      <input type="text" id="expressionInput" />
+
+      <button onclick="onClickGetExpression()">
+        Получить готовое выражение
+      </button>
+    </div>
+    <script>
+      const onClickGetExpression = () => {
+        if (
+          document.querySelector("#component").value &&
+          document.querySelector("#logsDate").value &&
+          document.querySelector("#expressionInput").value
+        ) {
+          const year = document.querySelector("#logsDate").value.split("-")[0];
+          const month = document.querySelector("#logsDate").value.split("-")[1];
+          const day = document.querySelector("#logsDate").value.split("-")[2];
+
+          const expr = `find $HOME/logs/${
+            document.querySelector("#component").value
+          }/${year}/*/ -name "*${year}*${month}*${day}*${
+            document.querySelector("#logsTime").value &&
+            document.querySelector("#logsTime").value + "*"
+          }.gz" -exec pigz -dc {} \; | grep "${
+            document.querySelector("#expressionInput").value
+          }"${
+            document.querySelector("#formatStyle").checked
+              ? ' | jq -j \'.["@timestamp"]," ",.["traceid"]," ",.["methodid"]," ",.["name"],": ",.["message"], "\\n"\' | awk \'{print $0,"\\n\\n"}'
+              : ""
+          }`;
+          navigator.clipboard.writeText(expr)
+            .then(() => {
+              console.log("ok");
+            })
+            .catch((err) => {
+              console.log("Something went wrong", err);
+            });
+        } else {
+          alert("Заполнены не все поля, проверь корректность ввода");
+        }
+      };
+    </script>
+  </body>
+</html>
