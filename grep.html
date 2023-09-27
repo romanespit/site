@@ -124,13 +124,13 @@
           }`;
           texttocopy = expr
           document.getElementById("tokenarea").value = expr
-          navigator.clipboard.writeText(expr)
+          /*navigator.clipboard.writeText(expr)
             .then(() => {
               console.log("ok");
             })
             .catch((err) => {
               console.log("Something went wrong", err);
-            });
+            });*/
         } else {
           alert("Заполнены не все поля, проверь корректность ввода");
         }
