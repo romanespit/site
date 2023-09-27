@@ -115,11 +115,11 @@
           }/${year}/*/ -name "*${year}*${month}*${day}*${
             document.querySelector("#logsTime").value &&
             document.querySelector("#logsTime").value + "*"
-          }.gz" -exec pigz -dc {} \; | grep "${
+          }.gz" -exec pigz -dc {} \\; | grep "${
             document.querySelector("#expressionInput").value
           }"${
             document.querySelector("#formatStyle").checked
-              ? ' | jq -j \'.["@timestamp"]," ",.["traceid"]," ",.["methodid"]," ",.["name"],": ",.["message"], "\\n"\' | awk \'{print $0,"\\n\\n"}'
+              ? ' | jq -j \'.["@timestamp"]," ",.["traceid"]," ",.["methodid"]," ",.["name"],": ",.["message"], "\\n"\' | awk \'{print $0,"\\n\\n"}\''
               : ""
           }`;
           texttocopy = expr
